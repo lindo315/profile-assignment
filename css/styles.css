@@ -1,0 +1,473 @@
+/* 
+BIZII Single-Page Website Styles
+Author: BIZII
+Description: Custom CSS for BIZII single-page website based on style guide
+*/
+
+/* ---------- RESET & BASE STYLES ---------- */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Colors from BIZII Style Guide */
+  --primary-red: #ff2b1f;
+  --light-cream: #fff5e9;
+  --dark-bg: #1d1c1f;
+  --white: #ffffff;
+
+  /* Typography Settings */
+  --letter-spacing: -0.05em; /* -50 tracking */
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  color: var(--white);
+  line-height: 1.6;
+  overflow-x: hidden;
+  background-color: var(--dark-bg);
+}
+
+/* Hide scrollbar but allow scrolling */
+body::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
+}
+
+body {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Helvetica Neue Condensed", Helvetica, Arial, sans-serif;
+  font-weight: 900; /* Black */
+  letter-spacing: var(--letter-spacing);
+  line-height: 1.2;
+  text-transform: lowercase;
+}
+
+h1 {
+  font-size: 4rem;
+  margin-bottom: 0.5rem;
+}
+
+h2 {
+  font-size: 7rem;
+  color: var(--primary-red);
+  margin-bottom: 3rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+p {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+a {
+  color: var(--white);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+a:hover {
+  color: var(--primary-red);
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ---------- SECTIONS ---------- */
+.section {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  padding: 2rem;
+  display: none;
+  overflow-y: auto;
+}
+
+.section.active {
+  display: block;
+}
+
+.home-section {
+  background-color: var(--primary-red);
+  color: var(--white);
+}
+
+.portfolio-section {
+  background-color: var(--light-cream);
+  color: var(--dark-bg);
+}
+
+.projects-section {
+  background-color: var(--dark-bg);
+  color: var(--white);
+}
+
+.contact-section {
+  background-color: var(--light-cream);
+  color: var(--dark-bg);
+}
+
+/* ---------- LOGO ---------- */
+.logo {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  width: 3rem;
+  z-index: 100;
+}
+
+.logo img {
+  width: 100%;
+  height: auto;
+}
+
+/* ---------- NAVIGATION ---------- */
+.navbar {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  z-index: 100;
+}
+
+.nav-links {
+  display: flex;
+}
+
+.nav-links li {
+  margin-left: 2rem;
+}
+
+.nav-links a {
+  position: relative;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  font-size: 1rem;
+  text-transform: none;
+  padding-bottom: 0.25rem;
+}
+
+.portfolio-section .nav-links a,
+.contact-section .nav-links a {
+  color: var(--dark-bg);
+}
+
+.home-section .nav-links a.active {
+  color: var(--white);
+}
+
+.portfolio-section .nav-links a.active,
+.contact-section .nav-links a.active {
+  color: var(--primary-red);
+}
+
+.projects-section .nav-links a.active {
+  color: var(--primary-red);
+}
+
+/* ---------- HOME SECTION ---------- */
+.home-content {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 2rem;
+  max-width: 800px;
+}
+
+.home-content h1 .highlight {
+  color: var(--white);
+  font-weight: 900;
+}
+
+.home-content p {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.social-icons {
+  display: flex;
+  align-items: center;
+  margin-top: 3rem;
+}
+
+.social-icon {
+  margin-right: 1.5rem;
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+}
+
+.social-icon:hover {
+  opacity: 1;
+}
+
+.social-icon img {
+  width: 1.5rem;
+  height: 1.5rem;
+  /* filter: invert(1); */
+}
+
+.portfolio-section .social-icon img,
+.contact-section .social-icon img {
+  filter: none;
+}
+
+/* ---------- SECTION CONTENT ---------- */
+.section-content {
+  padding-top: 8rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ---------- PORTFOLIO SECTION ---------- */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.service-item {
+  background: transparent;
+  padding: 1rem 0;
+}
+
+.service-icon {
+  width: 3rem;
+  height: 3rem;
+  margin-bottom: 1rem;
+}
+
+.service-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.portfolio-section h3 {
+  color: var(--dark-bg);
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.portfolio-section p {
+  color: var(--dark-bg);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* ---------- PROJECTS SECTION ---------- */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.project-card {
+  position: relative;
+  border-radius: 1rem;
+  overflow: hidden;
+  background-color: var(--light-cream);
+}
+
+.project-image {
+  width: 100%;
+  height: 0;
+  padding-bottom: 100%; /* 1:1 Aspect Ratio */
+  position: relative;
+}
+
+.project-image img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.project-title {
+  position: absolute;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  right: 1.5rem;
+}
+
+.project-title h3 {
+  color: var(--dark-bg);
+  font-size: 1.25rem;
+  margin: 0;
+}
+
+/* ---------- CONTACT SECTION ---------- */
+.contact-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.quote {
+  font-size: 1.5rem;
+  text-align: center;
+  color: var(--dark-bg);
+  margin-bottom: 2rem;
+}
+
+.arrow-down {
+  margin-bottom: 2rem;
+}
+
+.arrow-down img {
+  width: 2rem;
+  margin: 0 auto;
+}
+
+.contact-form {
+  width: 100%;
+}
+
+.form-group {
+  margin-bottom: 2rem;
+}
+
+input[type="email"] {
+  width: 100%;
+  padding: 1rem;
+  background-color: rgba(255, 255, 255, 0.8);
+  border: none;
+  border-radius: 0.25rem;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+  color: var(--dark-bg);
+}
+
+input[type="email"]::placeholder {
+  color: rgba(29, 28, 31, 0.6);
+}
+
+input[type="email"]:focus {
+  outline: none;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+/* Social icons in contact section */
+.contact-section .social-icons {
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.contact-section .social-icon img {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+/* ---------- RESPONSIVE DESIGN ---------- */
+@media screen and (max-width: 1024px) {
+  h2 {
+    font-size: 6rem;
+  }
+
+  .services-grid,
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  h1 {
+    font-size: 3rem;
+  }
+
+  h2 {
+    font-size: 4rem;
+  }
+
+  .services-grid,
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .nav-links li {
+    margin-left: 1.5rem;
+  }
+
+  .section {
+    padding: 1.5rem;
+  }
+
+  .logo {
+    top: 1.5rem;
+    left: 1.5rem;
+  }
+
+  .navbar {
+    top: 1.5rem;
+    right: 1.5rem;
+  }
+
+  .home-content {
+    left: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  h2 {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+  }
+
+  .nav-links li {
+    margin-left: 1rem;
+  }
+
+  .nav-links a {
+    font-size: 0.85rem;
+  }
+
+  .section-content {
+    padding-top: 6rem;
+  }
+
+  .contact-content {
+    width: 100%;
+  }
+}
