@@ -1,0 +1,185 @@
+/* 
+BIZII Single-Page Website - Home Section Styles
+Author: BIZII
+Description: Styling for the home/landing section
+*/
+
+/* ---------- HOME SECTION BASE ---------- */
+.home-section {
+  background-color: var(--primary-red);
+  color: var(--white);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Home section navigation links */
+.home-section .nav-links a {
+  color: var(--white);
+}
+
+.home-section .nav-links a.active {
+  color: var(--primary-red-light);
+}
+
+/* ---------- BACKGROUND LOGO ---------- */
+.background-logo {
+  position: absolute;
+  width: 80%;
+  height: 200vh;
+  top: 0;
+  left: 0;
+}
+
+.home-logo {
+  position: absolute;
+  width: 90%;
+  height: auto;
+  top: 20%;
+  left: 30%;
+  transform: translate(-50%, -50%);
+  opacity: 0.3;
+  /* Animation applied via JavaScript for smoother performance */
+}
+
+/* ---------- HOME CONTENT ---------- */
+.home-content {
+  position: absolute;
+  top: 30%;
+  transform: translateY(-50%);
+  transform: translateX(90%);
+  left: 2rem;
+  max-width: 800px;
+  z-index: 10;
+}
+
+/* Main heading with highlight */
+.home-content h1 .highlight {
+  color: var(--white);
+  font-weight: 900;
+  font-size: 6.5rem;
+}
+
+/* Text styling for credentials */
+.home-content p {
+  color: #fcedd9; /* Cream color for better contrast */
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+/* Light accent style for prefixes */
+.home-content p .light {
+  color: var(--primary-red-light);
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+/* Quote/tagline */
+.home-content h2 {
+  color: var(--white);
+  font-size: 2rem;
+  margin-bottom: 3rem;
+}
+
+/* ---------- SOCIAL ICONS ---------- */
+.social-icons {
+  display: flex;
+  align-items: center;
+  margin-top: 3rem;
+}
+
+.social-icon {
+  margin-right: 1.5rem;
+  background-color: var(--primary-red-light);
+  border-radius: 40%;
+  padding: 1rem;
+  opacity: 0.9;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.social-icon:hover {
+  opacity: 1;
+  transform: translateY(-3px);
+}
+
+/* Adjust YouTube icon to match others */
+.youtube-icon {
+  padding: 1.3rem;
+}
+
+.social-icon img {
+  width: 3rem;
+  height: 3rem;
+}
+
+.youtube-icon img {
+  width: 3rem;
+  height: 2.5rem;
+}
+
+/* ---------- RESPONSIVE ADJUSTMENTS ---------- */
+@media screen and (max-width: 1200px) {
+  .home-content {
+    transform: translateX(50%);
+  }
+
+  .home-content h1 .highlight {
+    font-size: 5rem;
+  }
+
+  .home-content p {
+    font-size: 1.8rem;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .home-content {
+    transform: translateX(20%);
+    top: 40%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .home-content {
+    transform: none;
+    top: 30%;
+    left: 1.5rem;
+    max-width: 90%;
+  }
+
+  .home-content h1 .highlight {
+    font-size: 4rem;
+  }
+
+  .home-content p {
+    font-size: 1.5rem;
+  }
+
+  .social-icon {
+    padding: 0.8rem;
+  }
+
+  .social-icon img {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .youtube-icon img {
+    width: 2rem;
+    height: 1.7rem;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .home-content h1 .highlight {
+    font-size: 3rem;
+  }
+
+  .home-content p {
+    font-size: 1.2rem;
+  }
+
+  .home-content p .light {
+    font-size: 1rem;
+  }
+}

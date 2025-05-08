@@ -1,0 +1,223 @@
+/* 
+BIZII Single-Page Website - About Section Styles
+Author: BIZII
+Description: Styling for the About Me section
+*/
+
+/* ---------- ABOUT SECTION BASE ---------- */
+.about-section {
+  background-color: var(--white);
+  color: var(--dark-bg);
+}
+
+/* About section navigation links */
+.about-section .nav-links a {
+  color: var(--primary-red);
+}
+
+.about-section .nav-links a.active {
+  color: var(--primary-red-light);
+}
+
+/* ---------- ABOUT SECTION HEADER ---------- */
+.about-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 2rem;
+}
+
+.about-title {
+  font-size: 4rem;
+  color: var(--primary-red);
+  text-transform: uppercase;
+  font-weight: 900;
+  margin-bottom: 0;
+  letter-spacing: -2px;
+}
+
+.title-underline {
+  height: 50px;
+  width: 100%;
+  max-width: 500px;
+  margin-top: -1.5rem;
+  position: relative;
+}
+
+/* ---------- ABOUT CONTENT LAYOUT ---------- */
+.about-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 4rem;
+  margin-top: 2rem;
+}
+
+/* Profile image */
+.about-image {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  max-width: 500px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.about-image img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.about-image:hover img {
+  transform: scale(1.02);
+}
+
+/* ---------- ABOUT TEXT CONTENT ---------- */
+.about-text {
+  font-family: "Montserrat", sans-serif;
+  color: var(--dark-bg);
+}
+
+/* Introduction text with highlight */
+.attention-text {
+  font-size: 1.4rem;
+  line-height: 1.5;
+  margin-bottom: 2rem;
+  font-weight: 500;
+}
+
+.highlight-text {
+  color: var(--primary-red);
+  font-weight: 700;
+}
+
+/* Approach paragraph */
+.approach-text {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.transform-text {
+  display: block;
+  font-weight: 700;
+  color: var(--primary-red);
+  font-size: 1.4rem;
+  margin-top: 0.5rem;
+}
+
+/* Call to action */
+.call-to-action {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-bottom: 2.5rem;
+}
+
+.connect-text {
+  display: block;
+  font-weight: 700;
+  color: var(--primary-red);
+  font-size: 1.4rem;
+  margin-top: 0.5rem;
+}
+
+/* ---------- SKILLS SECTION ---------- */
+.skills-section {
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.skills-title {
+  font-size: 1.2rem;
+  color: var(--grey);
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.skills-icons {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.skill-icon {
+  background-color: #f5f5f5; /* Light gray background */
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+}
+
+.skill-icon img {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+}
+
+.skill-icon:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* ---------- RESPONSIVE ADJUSTMENTS ---------- */
+@media screen and (max-width: 1200px) {
+  .about-content {
+    gap: 3rem;
+  }
+
+  .about-image {
+    max-width: 400px;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .about-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .about-image {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .about-title {
+    font-size: 3.5rem;
+  }
+
+  .attention-text,
+  .approach-text,
+  .call-to-action {
+    font-size: 1.1rem;
+  }
+
+  .transform-text,
+  .connect-text {
+    font-size: 1.2rem;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .about-title {
+    font-size: 3rem;
+  }
+
+  .skills-icons {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .skill-icon img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .about-header {
+    align-items: center;
+  }
+}

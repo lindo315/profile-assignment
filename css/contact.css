@@ -1,0 +1,152 @@
+/* 
+BIZII Single-Page Website - Contact Section Styles
+Author: BIZII
+Description: Styling for the Contact section and form
+*/
+
+/* ---------- CONTACT SECTION BASE ---------- */
+.contact-section {
+  background-color: var(--light-cream);
+  color: var(--dark-bg);
+}
+
+/* Contact section navigation links */
+.contact-section .nav-links a {
+  color: var(--dark-bg);
+}
+
+.contact-section .nav-links a.active {
+  color: var(--primary-red);
+}
+
+/* ---------- CONTACT CONTENT ---------- */
+.contact-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* Quote text */
+.quote {
+  font-size: 1.5rem;
+  text-align: center;
+  color: var(--dark-bg);
+  margin-bottom: 2rem;
+  font-weight: 500;
+}
+
+/* Arrow animation */
+.arrow-down {
+  margin-bottom: 2rem;
+  animation: bounce 2s infinite;
+}
+
+.arrow-down svg {
+  width: 2rem;
+  height: 2rem;
+  margin: 0 auto;
+}
+
+/* ---------- CONTACT FORM ---------- */
+.contact-form {
+  width: 100%;
+}
+
+.form-group {
+  margin-bottom: 2rem;
+}
+
+/* Email input styling */
+input[type="email"] {
+  width: 100%;
+  padding: 1rem;
+  background-color: rgba(255, 255, 255, 0.8);
+  border: none;
+  border-radius: 0.25rem;
+  font-family: "Montserrat", sans-serif;
+  font-size: 1rem;
+  color: var(--dark-bg);
+  transition: background-color 0.3s ease, transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+input[type="email"]::placeholder {
+  color: rgba(29, 28, 31, 0.6);
+}
+
+input[type="email"]:focus {
+  outline: none;
+  background-color: rgba(255, 255, 255, 1);
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Error state */
+input[type="email"].error {
+  border: 2px solid var(--primary-red);
+  animation: shake 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+/* Success message */
+.success-message {
+  text-align: center;
+  color: var(--primary-red);
+  font-weight: 600;
+  font-size: 1.2rem;
+  padding: 1rem;
+}
+
+/* ---------- SOCIAL ICONS ---------- */
+.contact-section .social-icons {
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.contact-section .social-icon {
+  background-color: var(--primary-red-light);
+  border-radius: 40%;
+  padding: 0.75rem;
+  margin: 0 0.75rem;
+}
+
+.contact-section .social-icon img {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.contact-section .social-icon:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* ---------- RESPONSIVE ADJUSTMENTS ---------- */
+@media screen and (max-width: 768px) {
+  .contact-content {
+    max-width: 100%;
+  }
+
+  .quote {
+    font-size: 1.3rem;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .quote {
+    font-size: 1.1rem;
+  }
+
+  input[type="email"] {
+    padding: 0.8rem;
+  }
+
+  .contact-section .social-icon {
+    padding: 0.5rem;
+  }
+
+  .contact-section .social-icon img {
+    width: 1.2rem;
+    height: 1.2rem;
+  }
+}

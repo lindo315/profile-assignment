@@ -1,0 +1,259 @@
+/* 
+BIZII Single-Page Website - Base Styles
+Author: BIZII
+Description: Core stylesheet with reset, variables, and base styling
+*/
+
+/* ---------- RESET STYLES ---------- */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ---------- CSS VARIABLES ---------- */
+:root {
+  /* Brand Colors */
+  --primary-red: #9a2f2b; /* Main brand red */
+  --primary-red-light: #c25d5e; /* Lighter red for accents */
+  --light-cream: #eee8e8; /* Light background */
+  --dark-bg: #2b2627; /* Dark background */
+  --white: #ffffff; /* White text/backgrounds */
+  --grey: #a1a1a1; /* Grey for subtle elements */
+
+  /* Typography Settings */
+  --letter-spacing: -0.05em; /* Tight letter spacing for headings */
+}
+
+/* ---------- BASE ELEMENT STYLING ---------- */
+html {
+  scroll-behavior: smooth; /* For smooth internal link scrolling */
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  font-weight: normal;
+  color: var(--white);
+  line-height: 1.6;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+  background-color: var(--dark-bg);
+}
+
+/* Hide scrollbar but allow scrolling */
+body::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
+}
+
+body {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+/* ---------- TYPOGRAPHY ---------- */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Montserrat", sans-serif;
+  letter-spacing: var(--letter-spacing);
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: 4rem;
+  margin-bottom: 0.5rem;
+}
+
+h2 {
+  font-size: 9rem;
+  color: var(--primary-red);
+  margin-bottom: 3rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+p {
+  font-family: "Montserrat", sans-serif;
+  font-weight: normal;
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+a {
+  color: var(--white);
+  text-decoration: none;
+  transition: all 0.3s ease; /* Smooth hover effects */
+}
+
+a:hover {
+  color: var(--primary-red);
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ---------- LAYOUT COMPONENTS ---------- */
+
+/* Basic section structure */
+.section {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  padding: 2rem;
+  display: none;
+  overflow-y: auto;
+}
+
+.section.active {
+  display: block;
+}
+
+/* Logo positioning */
+.logo {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  width: 3rem;
+  z-index: 100;
+}
+
+.logo img {
+  width: 100%;
+  height: auto;
+}
+
+/* Navigation bar */
+.navbar {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  z-index: 100;
+}
+
+.nav-links {
+  display: flex;
+}
+
+.nav-links li {
+  margin-left: 2rem;
+}
+
+.nav-links a {
+  position: relative;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  font-size: 1rem;
+  text-transform: none;
+  padding-bottom: 0.25rem;
+}
+
+.nav-links a.active {
+  color: var(--primary-red-light);
+  position: relative;
+}
+
+.nav-links a.active::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: currentColor;
+}
+
+/* Content containers */
+.section-content {
+  padding-top: 3rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Section transitions */
+.section {
+  transition: opacity 0.6s ease;
+}
+
+.section:not(.active) {
+  opacity: 0;
+}
+
+.section.active {
+  opacity: 1;
+}
+
+/* ---------- RESPONSIVE BREAKPOINTS ---------- */
+@media screen and (max-width: 1200px) {
+  h2 {
+    font-size: 6rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  h1 {
+    font-size: 3rem;
+  }
+
+  h2 {
+    font-size: 4rem;
+  }
+
+  .nav-links li {
+    margin-left: 1.5rem;
+  }
+
+  .section {
+    padding: 1.5rem;
+  }
+
+  .logo {
+    top: 1.5rem;
+    left: 1.5rem;
+  }
+
+  .navbar {
+    top: 1.5rem;
+    right: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  h2 {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+  }
+
+  .nav-links li {
+    margin-left: 1rem;
+  }
+
+  .nav-links a {
+    font-size: 0.85rem;
+  }
+
+  .section-content {
+    padding-top: 6rem;
+  }
+}

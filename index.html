@@ -5,68 +5,79 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bizii Vlogz - Content Creator, Designer, Videographer</title>
 
-    <!-- Font References (Helvetica Neue is system font, fallback provided) -->
+    <!-- Google Fonts - Montserrat (Light, Regular, Medium, Bold, Black) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;500;600;700;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font utility classes -->
     <style>
-      @font-face {
-        font-family: "Helvetica Neue";
-        src: local("Helvetica Neue"),
-          url("fonts/helvetica-neue.woff2") format("woff2");
-        font-weight: normal;
+      body {
+        font-family: "Montserrat", sans-serif;
       }
-      @font-face {
-        font-family: "Helvetica Neue";
-        src: local("Helvetica Neue Bold"), local("Helvetica-Neue-Bold"),
-          url("fonts/helvetica-neue-bold.woff2") format("woff2");
-        font-weight: bold;
-      }
-      @font-face {
-        font-family: "Helvetica Neue";
-        src: local("Helvetica Neue Thin"), local("Helvetica-Neue-Thin"),
-          url("fonts/helvetica-neue-thin.woff2") format("woff2");
+      .font-thin {
         font-weight: 100;
       }
-      @font-face {
-        font-family: "Helvetica Neue Condensed";
-        src: local("Helvetica Neue Condensed Bold"),
-          local("Helvetica-Neue-Condensed-Bold"),
-          url("fonts/helvetica-neue-condensed-bold.woff2") format("woff2");
-        font-weight: bold;
+      .font-regular {
+        font-weight: 400;
       }
-      @font-face {
-        font-family: "Helvetica Neue Condensed";
-        src: local("Helvetica Neue Condensed Black"),
-          local("Helvetica-Neue-Condensed-Black"),
-          url("fonts/helvetica-neue-condensed-black.woff2") format("woff2");
+      .font-bold {
+        font-weight: 700;
+      }
+      .font-black {
         font-weight: 900;
       }
     </style>
 
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/styles.css" />
+    <!-- Main stylesheets -->
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/animations.css" />
+    <link rel="stylesheet" href="css/home.css" />
+    <link rel="stylesheet" href="css/about.css" />
+    <link rel="stylesheet" href="css/portfolio.css" />
+    <link rel="stylesheet" href="css/contact.css" />
 
-    <!-- jQuery -->
+    <!-- jQuery library -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   </head>
   <body>
-    <!-- Home Section -->
+    <!-- HOME SECTION -->
     <section id="home" class="section home-section active">
+      <!-- Logo in top-left corner -->
       <div class="logo">
         <img src="images/icons/BIZII-logo.png" alt="BIZII Logo" />
       </div>
 
+      <!-- Main navigation -->
       <nav class="navbar">
         <ul class="nav-links">
           <li><a href="#home" class="active">Home</a></li>
+          <li><a href="#about">About Me</a></li>
           <li><a href="#portfolio">Portfolio</a></li>
-          <li><a href="#projects">Projects</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
 
-      <div class="home-content">
-        <h1>I'm <span class="highlight">Bizii Vlogz</span></h1>
-        <p>Content Creator, Designer, Videographer and Student.</p>
+      <!-- Background logo animation -->
+      <div class="background-logo">
+        <img
+          class="home-logo"
+          src="images/icons/BIZII-logo.png"
+          alt="BIZII Background Logo"
+        />
+      </div>
 
+      <!-- Home content -->
+      <div class="home-content">
+        <h1>I'm <span class="highlight">BIZII VLOGZ</span></h1>
+        <p><span class="light">AUTOMOTIVE</span> FILM PHOTOGRAPHER</p>
+        <p><span class="light">BRAND IDENTITY</span> DESIGNER</p>
+        <p><span class="light">SOCIAL MEDIA</span> MANAGER</p>
+
+        <!-- Social media icons -->
         <div class="social-icons">
           <a
             href="https://instagram.com/biziicrtv"
@@ -85,7 +96,7 @@
           <a
             href="https://youtube.com/biziivlogz"
             target="_blank"
-            class="social-icon"
+            class="youtube-icon social-icon"
           >
             <img src="images/icons/BIZII-youtube.png" alt="YouTube" />
           </a>
@@ -93,157 +104,355 @@
       </div>
     </section>
 
-    <!-- Portfolio Section -->
+    <!-- ABOUT SECTION -->
+    <section id="about" class="section about-section">
+      <!-- Logo in top-left corner -->
+      <div class="logo">
+        <img src="images/icons/BIZII-logo-red.png" alt="BIZII Logo" />
+      </div>
+
+      <!-- Main navigation -->
+      <nav class="navbar">
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about" class="active">About Me</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- About content -->
+      <div class="section-content about-section-content">
+        <div class="about-content">
+          <!-- Profile image -->
+          <div class="about-image">
+            <img src="images/profile.jpg" alt="Profile picture" />
+          </div>
+
+          <!-- About text -->
+          <div class="about-text">
+            <!-- Section header with underline -->
+            <div class="about-header">
+              <h2 class="about-title">ABOUT ME</h2>
+              <img
+                src="images/redline.png"
+                alt="line"
+                class="title-underline"
+              />
+            </div>
+
+            <!-- About text paragraphs -->
+            <p class="attention-text">
+              I create brands that demand attention through strategic
+              minimalism. My approach:
+              <span class="highlight-text">LESS NOISE, MORE IMPACT.</span>
+            </p>
+            <p class="approach-text">
+              My work combines bold typography, minimalist color palettes, and
+              cunning strategy to elevate brands beyond ordinary.
+              <br /><span class="transform-text"
+                >I DON'T JUST DESIGN. I TRANSFORM.</span
+              >
+            </p>
+            <p class="call-to-action">
+              Don't settle for being a regular horse in the branding race.
+              <br /><span class="connect-text">CONNECT NOW.</span>
+            </p>
+
+            <!-- Skills section -->
+            <div class="skills-section">
+              <h3 class="skills-title">PROFICIENT APPS:</h3>
+              <div class="skills-icons">
+                <div class="skill-icon">
+                  <img src="images/icons/design-ai.png" alt="Ai" />
+                </div>
+                <div class="skill-icon">
+                  <img src="images/icons/design-ps.png" alt="Ps" />
+                </div>
+                <div class="skill-icon">
+                  <img src="images/icons/design-pr.png" alt="Pr" />
+                </div>
+                <div class="skill-icon">
+                  <img src="images/icons/design-lrc.png" alt="LrC" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PORTFOLIO SECTION -->
     <section id="portfolio" class="section portfolio-section">
+      <!-- Logo in top-left corner -->
       <div class="logo">
         <img src="images/icons/BIZII-logo.png" alt="BIZII Logo" />
       </div>
 
+      <!-- Main navigation -->
       <nav class="navbar">
         <ul class="nav-links">
           <li><a href="#home">Home</a></li>
+          <li><a href="#about">About Me</a></li>
           <li><a href="#portfolio" class="active">Portfolio</a></li>
-          <li><a href="#projects">Projects</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
 
-      <div class="section-content">
-        <h2>portfolio</h2>
+      <!-- Main Portfolio Landing View -->
+      <div id="portfolio-main" class="portfolio-view active">
+        <!-- Portfolio header with underline -->
+        <div class="portfolio-header">
+          <h2 class="portfolio-title">PORTFOLIO</h2>
+          <img
+            src="images/whiteline.png"
+            alt="underline"
+            class="title-underline"
+          />
+        </div>
 
-        <div class="services-grid">
-          <div class="service-item">
-            <div class="service-icon">
-              <img
-                src="images/icons/BIZII-UX-icon.png"
-                alt="UI/UX Design Icon"
-              />
+        <!-- Portfolio grid with three cards -->
+        <div class="portfolio-grid">
+          <!-- Automotive Photography Card -->
+          <div class="portfolio-card" data-project="automotive">
+            <div class="portfolio-card-image">
+              <img src="images/auto/1.jpg" alt="Automotive Photography" />
             </div>
-            <h3>UI/UX Design</h3>
+            <div class="portfolio-card-title">
+              <h3>AUTOMOTIVE<br />PHOTOGRAPHY</h3>
+            </div>
+          </div>
+
+          <!-- Communication Design Card -->
+          <div class="portfolio-card" data-project="communication">
+            <div class="portfolio-card-image">
+              <img src="images/communication.png" alt="Communication Design" />
+            </div>
+            <div class="portfolio-card-title">
+              <h3>COMMUNICATION<br />DESIGN</h3>
+            </div>
+          </div>
+
+          <!-- Brand Identity Design Card -->
+          <div class="portfolio-card" data-project="brand">
+            <div class="portfolio-card-image">
+              <img src="images/identity.png" alt="Brand Identity Design" />
+            </div>
+            <div class="portfolio-card-title">
+              <h3>BRAND IDENTITY<br />DESIGN</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Automotive Photography Project View -->
+      <div id="project-automotive" class="portfolio-view project-view">
+        <!-- Project header with underline -->
+        <div class="project-header">
+          <h2 class="project-title">AUTOMOTIVE<br />PHOTOGRAPHY</h2>
+          <img
+            src="images/redline.png"
+            alt="underline"
+            class="title-underline"
+          />
+        </div>
+
+        <!-- Project content: text + showcase -->
+        <div class="project-content">
+          <!-- Project description text -->
+          <div class="project-description">
             <p>
-              With 5 years of experience in UI & Digital Design, I create
-              exceptional skills in UI/UX design. I create user-friendly
-              interfaces that enhance the user experience while maintaining
-              clean, eye-catching mockups that align with the project's goals
-              and the brand's identity.
+              I strip away marketing gloss to expose raw automotive truth. These
+              images reinterpret BMW's iconic
+              <strong>"The Ultimate Driving Machine"</strong> campaigns through
+              a modern Gauteng lens.
+            </p>
+
+            <p>
+              The M5's aggressive stance frozen Red Metallic finish become
+              characters in a visual narrative that honors BMW's advertising
+              legacy while refusing to copy it.
+            </p>
+
+            <p>
+              Each frame deliberately echoes
+              <strong>vintage composition with contemporary execution</strong>.
             </p>
           </div>
 
-          <div class="service-item">
-            <div class="service-icon">
-              <img
-                src="images/icons/BIZII-video-editing.png"
-                alt="Video Editing Icon"
-              />
+          <!-- Project image showcase -->
+          <div class="project-showcase">
+            <div class="project-image">
+              <img src="images/Confessions.png" alt="BMW M5 Photography" />
+              <div class="image-caption">
+                THE BMW M5.<br />AN UNCOMPROMISED DECISION.
+              </div>
             </div>
-            <h3>Video Editing</h3>
+            <!-- Navigation arrows and back button -->
+            <div class="project-navigation">
+              <button class="nav-arrow prev-arrow">&lt;</button>
+              <button class="nav-arrow next-arrow">&gt;</button>
+              <button class="back-to-portfolio">Back to Portfolio</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Communication Design Project View -->
+      <div id="project-communication" class="portfolio-view project-view">
+        <!-- Project header with underline -->
+        <div class="project-header">
+          <h2 class="project-title">COMMUNICATION<br />DESIGN</h2>
+          <img
+            src="images/redline.png"
+            alt="underline"
+            class="title-underline"
+          />
+        </div>
+
+        <!-- Project content: text + showcase -->
+        <div class="project-content">
+          <!-- Project description text -->
+          <div class="project-description">
             <p>
-              As a skilled video editor, I transform raw footage into a
-              compelling narrative. I use composition, color grading, and sound
-              effects to create a cohesive and visually stunning video. I am
-              proficient in industry-standard video editing software, which
-              ensures me to deliver high-quality videos within the project
-              timeline.
+              I crafted visual narratives for
+              <strong>Old mutual SMEGo</strong> that connect instantly with
+              South African entrepreneurs. The bold typography and decisive
+              color system create immediate brand recognition across dynamic
+              social environments.
+            </p>
+
+            <p>
+              Each touchpoint - from Tap2Pay promotional materials to
+              International Women's Day messaging maintains strategic and visual
+              CI consistency while addressing specific audience segments.
+            </p>
+
+            <p>
+              My design approach transforms complex financial services into
+              accessible visual language.
             </p>
           </div>
 
-          <div class="service-item">
-            <div class="service-icon">
-              <img
-                src="images/icons/BIZII-GFX-icon.png"
-                alt="Digital/GFX Design Icon"
-              />
+          <!-- Project image showcase -->
+          <div class="project-showcase">
+            <div class="project-image">
+              <img src="images/UIUberEats.png" alt="Old Mutual SMEGo Design" />
             </div>
-            <h3>Digital/GFX Design</h3>
+            <!-- Navigation arrows and back button -->
+            <div class="project-navigation">
+              <button class="nav-arrow prev-arrow">&lt;</button>
+              <button class="nav-arrow next-arrow">&gt;</button>
+              <button class="back-to-portfolio">Back to Portfolio</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Brand Identity Project View -->
+      <div id="project-brand" class="portfolio-view project-view">
+        <!-- Project header with underline -->
+        <div class="project-header">
+          <h2 class="project-title">BRAND IDENTITY<br />DESIGN</h2>
+          <img
+            src="images/redline.png"
+            alt="underline"
+            class="title-underline"
+          />
+        </div>
+
+        <!-- Project content: text + showcase -->
+        <div class="project-content">
+          <!-- Project description text -->
+          <div class="project-description">
             <p>
-              As a digital designer, I create visually appealing graphics that
-              align with the project's goals and the brand's identity. I am
-              proficient in design software like Photoshop and Illustrator,
-              which enables me to create high-quality graphics for various
-              mediums like print, web, and social media.
+              From concept to execution, I transformed Giant Step's engineering
+              ethos into visual language.
             </p>
+
+            <p>
+              The house-shaped mark communicates stability and upward momentum -
+              essential qualities for the brand's niche. Deep teal projects
+              confidence while establishing immediate sector recognition. The
+              minimalist approach reflects their precision, while bold
+              typography commands attention without apology.
+            </p>
+
+            <p>
+              The look and feel balances
+              <strong>corporate authority with accessible messaging</strong>
+              through the "Some see buildings. We see opportunities." tagline.
+            </p>
+          </div>
+
+          <!-- Project image showcase -->
+          <div class="project-showcase">
+            <div class="project-image">
+              <img src="images/Black.png" alt="Giant Step Brand Identity" />
+            </div>
+            <!-- Navigation arrows and back button -->
+            <div class="project-navigation">
+              <button class="nav-arrow prev-arrow">&lt;</button>
+              <button class="nav-arrow next-arrow">&gt;</button>
+              <button class="back-to-portfolio">Back to Portfolio</button>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="section projects-section">
-      <div class="logo">
-        <img src="images/icons/BIZII-logo.png" alt="BIZII Logo" />
-      </div>
-
-      <nav class="navbar">
-        <ul class="nav-links">
-          <li><a href="#home">Home</a></li>
-          <li><a href="#portfolio">Portfolio</a></li>
-          <li><a href="#projects" class="active">Projects</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-
-      <div class="section-content">
-        <h2>projects</h2>
-
-        <div class="projects-grid">
-          <div class="project-card">
-            <div class="project-image">
-              <img src="images/Confessions.png" alt="Campaigns Project" />
-            </div>
-            <div class="project-title">
-              <h3>Campaigns</h3>
-            </div>
-          </div>
-
-          <div class="project-card">
-            <div class="project-image">
-              <img
-                src="images/Black.png"
-                alt="Clothing & Apparel Design Project"
-              />
-            </div>
-            <div class="project-title">
-              <h3>Clothing & Apparel Design</h3>
-            </div>
-          </div>
-
-          <div class="project-card">
-            <div class="project-image">
-              <img src="images/UIUberEats.png" alt="UI/UX Design Project" />
-            </div>
-            <div class="project-title">
-              <h3>UI/UX Design</h3>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact Section -->
+    <!-- CONTACT SECTION -->
     <section id="contact" class="section contact-section">
+      <!-- Logo in top-left corner -->
       <div class="logo">
         <img src="images/icons/BIZII-logo.png" alt="BIZII Logo" />
       </div>
 
+      <!-- Main navigation -->
       <nav class="navbar">
         <ul class="nav-links">
           <li><a href="#home">Home</a></li>
+          <li><a href="#about">About Me</a></li>
           <li><a href="#portfolio">Portfolio</a></li>
-          <li><a href="#projects">Projects</a></li>
           <li><a href="#contact" class="active">Contact</a></li>
         </ul>
       </nav>
 
+      <!-- Contact content -->
       <div class="section-content">
         <h2>contact me</h2>
 
         <div class="contact-content">
+          <!-- Quote -->
           <p class="quote">"Let's get down to Bizness."</p>
 
+          <!-- Down arrow animation -->
           <div class="arrow-down">
-            <img src="images/icons/arrow-down.svg" alt="Arrow Down" />
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 5V19"
+                stroke="#FF2B1F"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M19 12L12 19L5 12"
+                stroke="#FF2B1F"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
           </div>
 
+          <!-- Contact form -->
           <form class="contact-form" id="contactForm">
             <div class="form-group">
               <input
@@ -255,6 +464,7 @@
               />
             </div>
 
+            <!-- Social media icons -->
             <div class="social-icons">
               <a
                 href="https://instagram.com/biziicrtv"
@@ -285,5 +495,9 @@
 
     <!-- JavaScript Files -->
     <script src="js/main.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/portfolio.js"></script>
+    <script src="js/form-validation.js"></script>
+    <script src="js/animations.js"></script>
   </body>
 </html>

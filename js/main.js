@@ -1,117 +1,162 @@
 /*
-BIZII Single-Page Website JavaScript
+BIZII Single-Page Website - Main JavaScript
 Author: BIZII
-Description: Custom JS for BIZII single-page website with section transitions
+Description: Core functionality and initialization for the website
 */
 
 $(document).ready(function () {
-  // Initial setup - show home section
-  $(".section").removeClass("active");
-  $("#home").addClass("active");
+  // ------------------------------------------------------------------------
+  // INITIALIZATION
+  // ------------------------------------------------------------------------
 
-  // Navigation click handling with smooth transitions
-  $(".nav-links a").on("click", function (e) {
-    e.preventDefault();
+  /**
+   * Initial setup when page loads
+   * - Set active section based on URL hash or default to home
+   * - Initialize section visibility
+   */
+  function initialize() {
+    console.log("Initializing website...");
 
-    const targetSection = $(this).attr("href");
+    // Set initial active section based on URL hash or default to home
+    const hash = window.location.hash || "#home";
+    const section = hash.replace("#portfolio-", "#portfolio"); // Handle portfolio sub-sections
 
-    // Update active navigation link
+    // Remove active class from all sections and navigation links
+    $(".section").removeClass("active");
     $(".nav-links a").removeClass("active");
-    $(this).addClass("active");
 
-    // Fade out current section
-    $(".section.active").fadeOut(300, function () {
-      $(this).removeClass("active");
+    // Activate correct section and navigation link
+    $(section).addClass("active");
+    $(`.nav-links a[href="${section}"]`).addClass("active");
 
-      // Fade in target section
-      $(targetSection).fadeIn(300, function () {
-        $(this).addClass("active");
-      });
-    });
-
-    // Update URL without page reload
-    history.pushState(null, null, targetSection);
-  });
-
-  // Handle browser back/forward buttons
-  $(window).on("popstate", function () {
-    const currentSection = window.location.hash || "#home";
-
-    // Update active navigation link
-    $(".nav-links a").removeClass("active");
-    $(`.nav-links a[href="${currentSection}"]`).addClass("active");
-
-    // Update active section
-    $(".section.active").removeClass("active");
-    $(currentSection).addClass("active");
-  });
-
-  // Email form validation
-  $("#contactForm").on("submit", function (e) {
-    e.preventDefault();
-
-    const email = $("#email").val().trim();
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-    if (email === "" || !emailRegex.test(email)) {
-      $("#email").addClass("error");
-      return;
+    // If we're in portfolio section, check for sub-section
+    if (hash.startsWith("#portfolio-")) {
+      // Initialize portfolio sub-section
+      initializePortfolioSubsection(hash.replace("#portfolio-", ""));
     }
 
-    // Form is valid - would normally send data to server here
-    // For demo purposes, show success message
-    $(this).html(
-      '<p class="success-message">Thanks for getting in touch! I\'ll get back to you shortly.</p>'
-    );
-  });
+    // Initialize scroll to top
+    window.scrollTo(0, 0);
 
-  // Remove error class on input focus
-  $("#email").on("focus", function () {
-    $(this).removeClass("error");
-  });
-
-  // Simple hover effects for projects
-  $(".project-card")
-    .on("mouseenter", function () {
-      $(this).addClass("hover");
-    })
-    .on("mouseleave", function () {
-      $(this).removeClass("hover");
-    });
-
-  // Handle direct URL access with hash
-  if (window.location.hash) {
-    const currentSection = window.location.hash;
-
-    // Update active navigation link
-    $(".nav-links a").removeClass("active");
-    $(`.nav-links a[href="${currentSection}"]`).addClass("active");
-
-    // Update active section
-    $(".section.active").removeClass("active");
-    $(currentSection).addClass("active");
+    // Apply initial fade-in animation to the site
+    $("body")
+      .css("opacity", "0")
+      .animate({ opacity: 1 }, 800, function () {
+        console.log("Site initialization complete");
+      });
   }
 
-  // Ensure correct section is shown when page is loaded
-  $(window).on("load", function () {
-    // Scroll to top when page is loaded
-    window.scrollTo(0, 0);
-  });
+  // ------------------------------------------------------------------------
+  // HELPERS & UTILITIES
+  // ------------------------------------------------------------------------
 
-  // Add scroll animation for arrow in contact section
-  setInterval(function () {
-    $(".arrow-down")
+  /**
+   * Adds a CSS animation keyframe dynamically to the document
+   * @param {string} name - The name of the animation
+   * @param {string} rules - The keyframe rules
+   */
+  function addKeyframeAnimation(name, rules) {
+    $("<style>")
+      .prop("type", "text/css")
+      .html(`@keyframes ${name} {${rules}}`)
+      .appendTo("head");
+  }
+
+  /**
+   * Checks if the device is mobile
+   * @returns {boolean} - True if mobile device
+   */
+  function isMobileDevice() {
+    return window.innerWidth <= 768;
+  }
+
+  // ------------------------------------------------------------------------
+  // ANIMATIONS
+  // ------------------------------------------------------------------------
+
+  /**
+   * Animates the background logo on the home page
+   */
+  function animateHomeLogo() {
+    // Subtle floating animation for background logo
+    $(".home-logo")
+      .css({
+        transform: "translate(-50%, -50%) scale(1.05)",
+        opacity: 0.35,
+      })
       .animate(
         {
-          marginTop: "10px",
+          transform: "translate(-50%, -50%) scale(1)",
+          opacity: 0.3,
         },
-        800
-      )
-      .animate(
-        {
-          marginTop: "0",
-        },
-        800
+        4000,
+        function () {
+          // Loop animation
+          animateHomeLogo();
+        }
       );
-  }, 1600);
+  }
+
+  /**
+   * Adds dynamic animations to the page
+   */
+  function setupAnimations() {
+    // Add shake animation for form validation
+    addKeyframeAnimation(
+      "shake",
+      `
+      0%, 100% {transform: translateX(0);}
+      10%, 30%, 50%, 70%, 90% {transform: translateX(-5px);}
+      20%, 40%, 60%, 80% {transform: translateX(5px);}
+    `
+    );
+
+    // Start background logo animation
+    animateHomeLogo();
+
+    // Bounce animation for arrow in contact section
+    setInterval(function () {
+      $(".arrow-down")
+        .animate({ marginTop: "10px" }, 800)
+        .animate({ marginTop: "0" }, 800);
+    }, 1600);
+  }
+
+  // ------------------------------------------------------------------------
+  // EVENT HANDLERS
+  // ------------------------------------------------------------------------
+
+  /**
+   * Handles window resize events
+   */
+  function handleResize() {
+    // Adjust layout for different screen sizes
+    console.log("Window resized");
+
+    // Additional resize handling if needed
+  }
+
+  /**
+   * Handles window scroll events
+   */
+  function handleScroll() {
+    // Handle scroll events if needed
+  }
+
+  // ------------------------------------------------------------------------
+  // INITIALIZATION CALLS
+  // ------------------------------------------------------------------------
+
+  // Initialize animations
+  setupAnimations();
+
+  // Initialize the site
+  initialize();
+
+  // Set up window event listeners
+  $(window).on("resize", handleResize);
+  $(window).on("scroll", handleScroll);
+
+  // Log initialization complete
+  console.log("Main JavaScript initialization complete");
 });
