@@ -38,6 +38,7 @@
     <link rel="stylesheet" href="css/home.css" />
     <link rel="stylesheet" href="css/about.css" />
     <link rel="stylesheet" href="css/portfolio.css" />
+    <link rel="stylesheet" href="css/project-view.css" />
     <link rel="stylesheet" href="css/contact.css" />
 
     <!-- jQuery library -->
@@ -245,8 +246,9 @@
         </div>
       </div>
 
-      <!-- Automotive Photography Project View -->
+      <!-- AUTOMOTIVE PHOTOGRAPHY PROJECT VIEW -->
       <div id="project-automotive" class="portfolio-view project-view">
+        <!-- Project content: text + showcase -->
         <!-- Project header with underline -->
         <div class="project-header">
           <h2 class="project-title">AUTOMOTIVE<br />PHOTOGRAPHY</h2>
@@ -256,10 +258,8 @@
             class="title-underline"
           />
         </div>
-
-        <!-- Project content: text + showcase -->
         <div class="project-content">
-          <!-- Project description text -->
+          <!-- Left column with project header and description -->
           <div class="project-description">
             <p>
               I strip away marketing gloss to expose raw automotive truth. These
@@ -278,42 +278,33 @@
               Each frame deliberately echoes
               <strong>vintage composition with contemporary execution</strong>.
             </p>
+
+            <button class="back-to-portfolio">Back to Portfolio</button>
           </div>
 
-          <!-- Project image showcase -->
+          <!-- Project image showcase with carousel -->
           <div class="project-showcase">
-            <div class="project-image">
-              <img src="images/Confessions.png" alt="BMW M5 Photography" />
-              <div class="image-caption">
-                THE BMW M5.<br />AN UNCOMPROMISED DECISION.
-              </div>
-            </div>
-            <!-- Navigation arrows and back button -->
-            <div class="project-navigation">
-              <button class="nav-arrow prev-arrow">&lt;</button>
-              <button class="nav-arrow next-arrow">&gt;</button>
-              <button class="back-to-portfolio">Back to Portfolio</button>
-            </div>
+            <!-- Carousel will be dynamically inserted by JavaScript -->
           </div>
         </div>
       </div>
 
-      <!-- Communication Design Project View -->
+      <!-- COMMUNICATION DESIGN PROJECT VIEW -->
       <div id="project-communication" class="portfolio-view project-view">
-        <!-- Project header with underline -->
-        <div class="project-header">
-          <h2 class="project-title">COMMUNICATION<br />DESIGN</h2>
-          <img
-            src="images/redline.png"
-            alt="underline"
-            class="title-underline"
-          />
-        </div>
-
         <!-- Project content: text + showcase -->
         <div class="project-content">
-          <!-- Project description text -->
+          <!-- Left column with project header and description -->
           <div class="project-description">
+            <!-- Project header with underline -->
+            <div class="project-header">
+              <h2 class="project-title">COMMUNICATION<br />DESIGN</h2>
+              <img
+                src="images/redline.png"
+                alt="underline"
+                class="title-underline"
+              />
+            </div>
+
             <p>
               I crafted visual narratives for
               <strong>Old mutual SMEGo</strong> that connect instantly with
@@ -332,39 +323,33 @@
               My design approach transforms complex financial services into
               accessible visual language.
             </p>
+
+            <button class="back-to-portfolio">Back to Portfolio</button>
           </div>
 
           <!-- Project image showcase -->
           <div class="project-showcase">
-            <div class="project-image">
-              <img src="images/UIUberEats.png" alt="Old Mutual SMEGo Design" />
-            </div>
-            <!-- Navigation arrows and back button -->
-            <div class="project-navigation">
-              <button class="nav-arrow prev-arrow">&lt;</button>
-              <button class="nav-arrow next-arrow">&gt;</button>
-              <button class="back-to-portfolio">Back to Portfolio</button>
-            </div>
+            <!-- Gallery will be dynamically inserted by JavaScript -->
           </div>
         </div>
       </div>
 
-      <!-- Brand Identity Project View -->
+      <!-- BRAND IDENTITY PROJECT VIEW -->
       <div id="project-brand" class="portfolio-view project-view">
-        <!-- Project header with underline -->
-        <div class="project-header">
-          <h2 class="project-title">BRAND IDENTITY<br />DESIGN</h2>
-          <img
-            src="images/redline.png"
-            alt="underline"
-            class="title-underline"
-          />
-        </div>
-
         <!-- Project content: text + showcase -->
         <div class="project-content">
-          <!-- Project description text -->
+          <!-- Left column with project header and description -->
           <div class="project-description">
+            <!-- Project header with underline -->
+            <div class="project-header">
+              <h2 class="project-title">BRAND IDENTITY<br />DESIGN</h2>
+              <img
+                src="images/redline.png"
+                alt="underline"
+                class="title-underline"
+              />
+            </div>
+
             <p>
               From concept to execution, I transformed Giant Step's engineering
               ethos into visual language.
@@ -383,19 +368,13 @@
               <strong>corporate authority with accessible messaging</strong>
               through the "Some see buildings. We see opportunities." tagline.
             </p>
+
+            <button class="back-to-portfolio">Back to Portfolio</button>
           </div>
 
           <!-- Project image showcase -->
           <div class="project-showcase">
-            <div class="project-image">
-              <img src="images/Black.png" alt="Giant Step Brand Identity" />
-            </div>
-            <!-- Navigation arrows and back button -->
-            <div class="project-navigation">
-              <button class="nav-arrow prev-arrow">&lt;</button>
-              <button class="nav-arrow next-arrow">&gt;</button>
-              <button class="back-to-portfolio">Back to Portfolio</button>
-            </div>
+            <!-- Gallery will be dynamically inserted by JavaScript -->
           </div>
         </div>
       </div>
@@ -497,6 +476,7 @@
     <script src="js/main.js"></script>
     <script src="js/navigation.js"></script>
     <script src="js/portfolio.js"></script>
+    <script src="js/project-view.js"></script>
     <script src="js/form-validation.js"></script>
     <script src="js/animations.js"></script>
   </body>

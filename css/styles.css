@@ -1023,10 +1023,10 @@ input[type="email"]:focus {
   font-weight: 700;
 }
 
-.project-showcase {
+/* .project-showcase {
   flex: 1.5;
   position: relative;
-}
+} */
 
 .project-image {
   border-radius: 10px;

@@ -1,0 +1,353 @@
+/* 
+* Updated Portfolio Project View Styles
+* 
+* This CSS implements:
+* 1. Proper layout with project title and description in the same column
+* 2. Automotive Photography carousel with buttons on the sides
+* 3. Static galleries for Communication and Brand Identity
+*/
+
+/* ------------------------------------------------------------------------
+   COMMON PROJECT VIEW STYLES
+   ------------------------------------------------------------------------ */
+
+.project-view {
+  padding: 3rem 2rem;
+}
+
+/* .project-content {
+  display: flex;
+  gap: 4rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding-top: 2rem;
+} */
+
+/* Left column containing both header and description */
+.project-description {
+  flex: 1;
+  max-width: 800px;
+}
+
+/* Project header now stays with description */
+/* .project-header {
+  margin-bottom: 2rem;
+}
+
+.project-title {
+  font-size: 4rem;
+  color: var(--primary-red);
+  text-transform: uppercase;
+  font-weight: 900;
+  margin-bottom: 0.5rem;
+  letter-spacing: -2px;
+  line-height: 1;
+}
+
+.project-description p {
+  color: var(--dark-bg);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.project-description strong {
+  font-weight: 700;
+  color: var(--primary-red);
+} */
+
+/* Project showcase area */
+.project-showcase {
+  flex: 1.2;
+  position: relative;
+  max-width: 400px;
+}
+
+/* Back to portfolio button */
+.back-to-portfolio {
+  display: inline-block;
+  background-color: var(--primary-red);
+  color: var(--white);
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border-radius: 50px;
+  margin-top: 2rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  border: none;
+  text-align: center;
+}
+
+.back-to-portfolio:hover {
+  background-color: var(--primary-red-light);
+  transform: translateY(-3px);
+}
+
+/* ------------------------------------------------------------------------
+     AUTOMOTIVE PHOTOGRAPHY CAROUSEL
+     ------------------------------------------------------------------------ */
+
+/* Container for the carousel */
+.carousel-container {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  overflow: visible; /* Allow arrows to overflow */
+}
+
+/* Image container */
+.carousel-image-container {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  background-color: var(--dark-bg);
+  width: 100%;
+  height: auto;
+}
+
+.carousel-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+/* Arrow buttons */
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background-color: var(--primary-red);
+  color: var(--white);
+  border: none;
+  font-size: 1.2rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.carousel-arrow:hover {
+  background-color: var(--primary-red-light);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.prev-arrow {
+  left: -22px;
+}
+
+.next-arrow {
+  right: -22px;
+}
+
+/* Image caption */
+.image-caption {
+  position: absolute;
+  bottom: -2.5rem;
+  right: 0;
+  color: var(--dark-bg);
+  font-size: 0.9rem;
+  text-align: right;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+/* Indicators for carousel */
+.carousel-indicators {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  margin-top: 3rem;
+  gap: 10px;
+}
+
+.carousel-indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: var(--grey);
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.carousel-indicator.active {
+  background-color: var(--primary-red);
+}
+
+.carousel-indicator:hover {
+  transform: scale(1.2);
+}
+
+/* ------------------------------------------------------------------------
+     COMMUNICATION & BRAND IDENTITY STATIC GALLERIES
+     ------------------------------------------------------------------------ */
+
+.project-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.gallery-main-image {
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  background-color: #fff;
+}
+
+.gallery-main-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.gallery-thumbnails {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+}
+
+.gallery-thumbnail {
+  width: calc(50% - 0.75rem);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-thumbnail:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.gallery-thumbnail img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.gallery-thumbnail:hover img {
+  transform: scale(1.05);
+}
+
+/* ------------------------------------------------------------------------
+     RESPONSIVE DESIGN
+     ------------------------------------------------------------------------ */
+
+@media screen and (max-width: 1200px) {
+  .project-title {
+    font-size: 3.5rem;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .project-content {
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .project-description {
+    max-width: 100%;
+  }
+
+  .project-showcase {
+    max-width: 100%;
+  }
+
+  .project-title {
+    font-size: 3rem;
+  }
+
+  .carousel-arrow {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .project-view {
+    padding: 2rem 1.5rem;
+  }
+
+  .project-content {
+    gap: 2rem;
+  }
+
+  .project-title {
+    font-size: 2.5rem;
+  }
+
+  .project-description p {
+    font-size: 1rem;
+  }
+
+  .gallery-thumbnails {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .gallery-thumbnail {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .carousel-arrow {
+    width: 36px;
+    height: 36px;
+    font-size: 1rem;
+  }
+
+  .prev-arrow {
+    left: -18px;
+  }
+
+  .next-arrow {
+    right: -18px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .project-view {
+    padding: 2rem 1rem;
+  }
+
+  .project-title {
+    font-size: 2rem;
+  }
+
+  .carousel-arrow {
+    width: 32px;
+    height: 32px;
+    font-size: 0.9rem;
+  }
+
+  .prev-arrow {
+    left: -16px;
+  }
+
+  .next-arrow {
+    right: -16px;
+  }
+
+  .image-caption {
+    font-size: 0.8rem;
+  }
+}

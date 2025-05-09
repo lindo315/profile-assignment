@@ -69,7 +69,7 @@ Description: Styling for the Portfolio section and project showcases
 
 /* Style for project detail title */
 .project-title {
-  font-size: 4rem;
+  font-size: 5rem;
   color: var(--primary-red);
 }
 
@@ -150,9 +150,9 @@ Description: Styling for the Portfolio section and project showcases
 .project-header-banner {
   position: absolute;
   /* width: 100%; */
-  /* padding: 2rem 4rem 2rem; */
-  background-color: var(--white);
-  /* margin-top: 3rem; */
+  /* padding-top: 4rem; */
+  /* background-color: var(--white); */
+  margin-top: 3rem;
   z-index: 0;
 }
 
@@ -161,7 +161,7 @@ Description: Styling for the Portfolio section and project showcases
   gap: 4rem;
   max-width: 1400px;
   margin: 0 auto;
-  margin-top: 3rem; /* Additional margin to accommodate the header banner */
+  margin-top: 9rem; /* Additional margin to accommodate the header banner */
 }
 
 /* Project description text */
@@ -192,7 +192,7 @@ Description: Styling for the Portfolio section and project showcases
 .project-showcase {
   flex: 1.2;
   position: relative;
-  max-width: 800px;
+  max-width: 500px;
   margin: 0 auto;
 }
 
@@ -202,7 +202,7 @@ Description: Styling for the Portfolio section and project showcases
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
   position: relative;
   max-width: 100%;
-  width: 60%;
+  width: 90%;
   margin: 0 auto;
 }
 
