@@ -1,70 +1,62 @@
-/*
-BIZII Single-Page Website - Navigation JavaScript
-Author: BIZII
-Description: Handles navigation between sections with smooth transitions
-*/
-
+// Wait until the document is loaded
 $(document).ready(function () {
-  // ------------------------------------------------------------------------
-  // SECTION NAVIGATION
-  // ------------------------------------------------------------------------
+  // SECTION NAVIGATION - Handling clicks on navigation links
 
   /**
-   * Handles clicks on main navigation links
-   * - Prevents default link behavior
-   * - Transitions smoothly between sections
-   * - Updates URL hash
+   * This handles clicks on the main navigation links
+   * It creates smooth transitions between sections instead of abrupt changes
    */
   $(".nav-links a").on("click", function (e) {
+    // Prevent the default link behavior (stops page from jumping)
     e.preventDefault();
 
-    // Get target section ID from href attribute
+    // Get the target section ID from the href attribute
     const targetSection = $(this).attr("href");
 
-    // Only proceed if this is not the current active section
+    // Only do the transition if we're not already on this section
     if (!$(targetSection).hasClass("active")) {
       console.log(`Navigating to section: ${targetSection}`);
 
-      // Update active navigation link
+      // Update the active navigation link
       $(".nav-links a").removeClass("active");
       $(this).addClass("active");
 
-      // Fade out current section
+      // Fade out the current section with a nice animation
       $(".section.active").fadeOut(400, function () {
         // Remove active class from current section
         $(this).removeClass("active");
 
-        // Fade in target section
+        // Fade in the target section
         $(targetSection)
-          .css("display", "block")
-          .hide()
+          .css("display", "block") // Need to set display before fading in
+          .hide() // Hide it first so we can fade it in
           .fadeIn(400, function () {
             // Add active class to new section
             $(this).addClass("active");
 
-            // Reset scroll position
+            // Reset scroll position to top
             window.scrollTo(0, 0);
 
-            console.log(`Section transition to ${targetSection} complete`);
+            console.log(`Transition to ${targetSection} complete`);
           });
       });
 
-      // Update URL without page reload
+      // Update URL without reloading the page
+      // This is cool because it lets users bookmark specific sections
       history.pushState(null, null, targetSection);
     }
   });
 
   /**
-   * Handles browser back/forward buttons
-   * - Responds to changes in URL hash
-   * - Updates active section and navigation
+   * This handles the browser back/forward buttons
+   * so navigation still works when users use browser history
    */
   $(window).on("popstate", function () {
     // Get current section from URL hash or default to home
     const currentSection = window.location.hash || "#home";
     console.log(`Browser history navigation to: ${currentSection}`);
 
-    // Handle portfolio sub-sections
+    // Handle portfolio sub-sections specially
     const mainSection = currentSection.startsWith("#portfolio-")
       ? "#portfolio"
       : currentSection;
@@ -89,15 +81,15 @@ $(document).ready(function () {
   });
 
   /**
-   * Handles direct URL access with hash
-   * - Ensures correct section is shown on page load/refresh
+   * This makes sure the correct section shows when someone
+   * visits the site with a hash in the URL (like index.html#about)
    */
   function handleDirectURLAccess() {
     if (window.location.hash) {
       const currentSection = window.location.hash;
       console.log(`Direct URL access to: ${currentSection}`);
 
-      // Handle portfolio sub-sections
+      // Handle portfolio sub-sections specially
       const mainSection = currentSection.startsWith("#portfolio-")
         ? "#portfolio"
         : currentSection;
@@ -118,26 +110,24 @@ $(document).ready(function () {
     }
   }
 
-  // ------------------------------------------------------------------------
-  // SCROLL NAVIGATION
-  // ------------------------------------------------------------------------
+  // SCROLL NAVIGATION - Adding scroll-to-top functionality
 
   /**
-   * Adds a button to scroll back to top within sections
-   * - Only shown in longer sections
-   * - Appears after scrolling down
+   * This adds a button to scroll back to top within long sections
+   * It only appears after scrolling down a bit
    */
   function setupScrollToTop() {
-    // Add scroll-to-top button to sections that might need it
+    // Add a scroll-to-top button to sections that might need it
+    // I'm only adding it to About and Portfolio since they might be long
     $("#about, #portfolio").append(`
-        <button class="scroll-top-btn" style="display: none;">
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-            <path d="M10 2L10 18M10 2L3 9M10 2L17 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </button>
-      `);
+          <button class="scroll-top-btn" style="display: none;">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <path d="M10 2L10 18M10 2L3 9M10 2L17 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        `);
 
-    // Show/hide button based on scroll position
+    // Show/hide the button based on scroll position
     $(".section").on("scroll", function () {
       if ($(this).scrollTop() > 300) {
         $(this).find(".scroll-top-btn").fadeIn();
@@ -157,20 +147,17 @@ $(document).ready(function () {
     });
   }
 
-  // ------------------------------------------------------------------------
-  // KEYBOARD NAVIGATION
-  // ------------------------------------------------------------------------
+  // KEYBOARD NAVIGATION - Adding keyboard shortcuts
 
   /**
-   * Sets up keyboard navigation
-   * - Escape: Back to portfolio main view from project
-   * - Arrow keys: Navigate galleries in portfolio projects
+   * This adds keyboard navigation functionality
+   * so users can navigate with arrow keys and escape
    */
   function setupKeyboardNavigation() {
     $(document).keydown(function (e) {
-      // Handle keyboard navigation in portfolio section
+      // Only handle keyboard in portfolio section
       if ($("#portfolio").hasClass("active")) {
-        // Check if we're viewing a project
+        // Check if viewing a project
         const activeProject = $(".project-view.active");
 
         if (activeProject.length > 0) {
@@ -191,14 +178,11 @@ $(document).ready(function () {
     });
   }
 
-  // ------------------------------------------------------------------------
-  // TOUCH NAVIGATION
-  // ------------------------------------------------------------------------
+  // TOUCH NAVIGATION - Adding swipe functionality for mobile
 
   /**
-   * Sets up touch navigation for mobile devices
-   * - Swipe left/right to navigate galleries
-   * - Swipe up/down to scroll sections
+   * This adds touch navigation for mobile devices
+   * so users can swipe to navigate galleries
    */
   function setupTouchNavigation() {
     let touchStartX = 0;
@@ -215,11 +199,12 @@ $(document).ready(function () {
       const touchEndY = e.originalEvent.changedTouches[0].clientY;
       const projectView = $(this).closest(".project-view");
 
-      // Calculate swipe distance
+      // Calculate how far they swiped
       const swipeDistanceX = touchStartX - touchEndX;
       const swipeDistanceY = touchStartY - touchEndY;
 
       // If horizontal swipe is more significant than vertical
+      // and the swipe was big enough to count
       if (
         Math.abs(swipeDistanceX) > Math.abs(swipeDistanceY) &&
         Math.abs(swipeDistanceX) > 50
@@ -239,9 +224,7 @@ $(document).ready(function () {
     });
   }
 
-  // ------------------------------------------------------------------------
-  // INITIALIZATION CALLS
-  // ------------------------------------------------------------------------
+  // INITIALIZATION - Running the setup functions
 
   // Handle direct URL access
   handleDirectURLAccess();
@@ -255,6 +238,6 @@ $(document).ready(function () {
   // Setup touch navigation for mobile
   setupTouchNavigation();
 
-  // Log initialization complete
-  console.log("Navigation JavaScript initialization complete");
+  // Just a log to confirm everything loaded
+  console.log("Navigation JavaScript loaded");
 });

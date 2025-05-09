@@ -1,20 +1,13 @@
-/*
-BIZII Single-Page Website - Portfolio JavaScript
-Author: BIZII
-Description: Handles portfolio section navigation, project viewing, and gallery navigation
-*/
-
+// Wait until the document is loaded
 $(document).ready(function () {
-  // ------------------------------------------------------------------------
-  // PORTFOLIO VARIABLES
-  // ------------------------------------------------------------------------
+  // PORTFOLIO VARIABLES - Data for the image galleries
 
   /**
-   * Project gallery image data
-   * - Stores image src and caption for each project type
-   * - Used for navigation between images in project galleries
+   * This stores all the image data for each project gallery
+   * I structured it as an object to keep everything organized
    */
   const projectGalleries = {
+    // Automotive project images
     automotive: [
       {
         image: "images/auto/2.jpg",
@@ -33,6 +26,7 @@ $(document).ready(function () {
         caption: "THE BMW M5.<br>UNLEASHING THE BEAST.",
       },
     ],
+    // Communication project images
     communication: [
       {
         image: "images/UIUberEats.png",
@@ -47,6 +41,7 @@ $(document).ready(function () {
         caption: "INTERNATIONAL WOMEN'S DAY.<br>ACCELERATE ACTION.",
       },
     ],
+    // Brand identity project images
     brand: [
       {
         image: "images/Black.png",
@@ -64,7 +59,8 @@ $(document).ready(function () {
   };
 
   /**
-   * Track current image index for each project
+   * Keep track of which image we're showing in each project gallery
+   * Starting with the first image (index 0)
    */
   const currentImageIndex = {
     automotive: 0,
@@ -72,95 +68,88 @@ $(document).ready(function () {
     brand: 0,
   };
 
-  // ------------------------------------------------------------------------
-  // PORTFOLIO NAVIGATION
-  // ------------------------------------------------------------------------
+  // PORTFOLIO NAVIGATION - Switching between main grid and project views
 
   /**
-   * Handles portfolio card clicks
-   * - Transitions from main portfolio view to project detail view
-   * - Updates URL hash
-   * - Changes background color and styling
+   * This handles clicks on portfolio project cards
+   * to open the detailed project view
    */
   $(".portfolio-card").on("click", function () {
+    // Get which project was clicked (automotive, communication, or brand)
     const projectType = $(this).data("project");
     console.log(`Opening project: ${projectType}`);
 
+    // Show that project's detailed view
     showPortfolioProject(projectType);
   });
 
   /**
-   * Handles back to portfolio button clicks
-   * - Returns from project detail view to main portfolio grid
-   * - Updates URL hash
-   * - Restores original background color and styling
+   * This handles clicks on "Back to Portfolio" buttons
+   * to return to the main portfolio grid
    */
   $(".back-to-portfolio").on("click", function () {
     console.log("Returning to main portfolio view");
 
+    // Go back to the main portfolio grid
     showPortfolioMain();
   });
 
   /**
-   * Shows the main portfolio grid view
-   * - Hides all project views
-   * - Shows the main portfolio view
-   * - Updates URL hash
-   * - Restores original background color and styling
+   * This shows the main portfolio grid view
+   * It hides all project views and shows the grid
    */
   function showPortfolioMain() {
-    // Remove project active class to revert background color
+    // Remove the white background class
     $("#portfolio").removeClass("project-active");
 
     // Hide all project views
     $(".project-view").removeClass("active");
 
-    // Show main portfolio view
+    // Show main portfolio grid
     $("#portfolio-main").addClass("active");
 
-    // Update URL hash
+    // Update the URL hash
     history.pushState(null, null, "#portfolio");
 
-    // Update logo color (if you have different logos for different backgrounds)
+    // Update the logo to match the background color
     updateLogoForBackground(false);
   }
 
   /**
-   * Shows a specific portfolio project
-   * @param {string} projectType - Type of project to show (automotive, communication, brand)
+   * This shows a specific project's detailed view
    */
   function showPortfolioProject(projectType) {
-    // Validate project type
+    // Make sure it's a valid project type
     if (!["automotive", "communication", "brand"].includes(projectType)) {
       console.error(`Invalid project type: ${projectType}`);
       return;
     }
 
-    // Add project active class to change background color
+    // Add class to change background to white
     $("#portfolio").addClass("project-active");
 
-    // Hide main portfolio view
+    // Hide the main portfolio grid
     $("#portfolio-main").removeClass("active");
 
-    // Show selected project view
+    // Show the selected project view
     $(`#project-${projectType}`).addClass("active");
 
     // Reset to first image in gallery
     updateProjectImage(projectType, 0);
 
-    // Update URL hash
+    // Update the URL hash
     history.pushState(null, null, `#portfolio-${projectType}`);
 
-    // Update logo color (if you have different logos for different backgrounds)
+    // Update the logo to match the background color
     updateLogoForBackground(true);
   }
 
   /**
-   * Updates the logo image based on background
-   * @param {boolean} isProjectView - Whether we're in a project view
+   * This updates the logo image based on the background color
+   * Red background = white logo, White background = red logo
    */
   function updateLogoForBackground(isProjectView) {
-    // Replace with your white and dark logo images as needed
+    // Get the logo image element
     const logoImg = $("#portfolio .logo img");
 
     if (isProjectView) {
@@ -173,28 +162,25 @@ $(document).ready(function () {
   }
 
   /**
-   * Updates the project header structure
-   * - Moves the project header to a banner for project views
+   * This sets up the project header structure
+   * by wrapping them in a banner for better styling
    */
   function setupProjectHeaders() {
-    // Wrap each project header in a banner div for styling
+    // For each project view section
     $(".project-view").each(function () {
       const header = $(this).find(".project-header");
 
-      // Only apply if not already wrapped
+      // Only wrap it if not already wrapped
       if (!header.parent().hasClass("project-header-banner")) {
         header.wrap('<div class="project-header-banner"></div>');
       }
     });
   }
 
-  // ------------------------------------------------------------------------
-  // PROJECT GALLERY NAVIGATION
-  // ------------------------------------------------------------------------
+  // PROJECT GALLERY NAVIGATION - Next/Previous buttons in project galleries
 
   /**
-   * Handles next arrow clicks in project galleries
-   * - Shows the next image in the project gallery
+   * This handles clicks on the next arrow in galleries
    */
   $(".next-arrow").on("click", function () {
     // Get the project type from the parent container ID
@@ -205,17 +191,16 @@ $(document).ready(function () {
     const gallery = projectGalleries[projectType];
     if (!gallery || gallery.length <= 1) return;
 
-    // Update current index
+    // Update to the next image (loop back to start if at the end)
     currentImageIndex[projectType] =
       (currentImageIndex[projectType] + 1) % gallery.length;
 
-    // Update image and caption
+    // Update the image and caption
     updateProjectImage(projectType, currentImageIndex[projectType]);
   });
 
   /**
-   * Handles previous arrow clicks in project galleries
-   * - Shows the previous image in the project gallery
+   * This handles clicks on the previous arrow in galleries
    */
   $(".prev-arrow").on("click", function () {
     // Get the project type from the parent container ID
@@ -226,20 +211,19 @@ $(document).ready(function () {
     const gallery = projectGalleries[projectType];
     if (!gallery || gallery.length <= 1) return;
 
-    // Update current index
+    // Update to the previous image (loop to end if at the start)
     currentImageIndex[projectType] =
       (currentImageIndex[projectType] - 1 + gallery.length) % gallery.length;
 
-    // Update image and caption
+    // Update the image and caption
     updateProjectImage(projectType, currentImageIndex[projectType]);
   });
 
   /**
-   * Updates the project image and caption
-   * @param {string} projectType - Type of project (automotive, communication, brand)
-   * @param {number} index - Index of the image to show
+   * This updates the project image and caption based on the index
    */
   function updateProjectImage(projectType, index) {
+    // Get the gallery for this project
     const gallery = projectGalleries[projectType];
     if (!gallery || index >= gallery.length) {
       console.error(`Invalid gallery or index: ${projectType}, ${index}`);
@@ -248,44 +232,46 @@ $(document).ready(function () {
 
     console.log(`Updating ${projectType} gallery to image ${index}`);
 
+    // Get the image container for this project
     const imageContainer = $(`#project-${projectType} .project-image`);
 
-    // Fade out current image
+    // Fade out the current image
     imageContainer.fadeOut(200, function () {
-      // Update image
+      // Update the image source
       imageContainer.find("img").attr("src", gallery[index].image);
 
-      // Update caption
+      // Update the caption
       if (gallery[index].caption) {
         if (imageContainer.find(".image-caption").length === 0) {
+          // Create caption if it doesn't exist
           imageContainer.append(
             `<div class="image-caption">${gallery[index].caption}</div>`
           );
         } else {
+          // Update existing caption
           imageContainer.find(".image-caption").html(gallery[index].caption);
         }
       }
 
-      // Fade in updated image
+      // Fade in the updated image
       imageContainer.fadeIn(200);
     });
 
-    // Update current index
+    // Update the current index
     currentImageIndex[projectType] = index;
   }
 
-  // ------------------------------------------------------------------------
-  // PORTFOLIO INITIALIZATION
-  // ------------------------------------------------------------------------
+  // PORTFOLIO INITIALIZATION - Setting up the portfolio when page loads
 
   /**
-   * Initializes portfolio section structure and styles
+   * This initializes the portfolio section structure and styles
    */
   function initializePortfolio() {
     // Setup project headers
     setupProjectHeaders();
 
     // Check if we need to start in a project view
+    // (useful for direct links to specific projects)
     const hash = window.location.hash;
     if (hash.startsWith("#portfolio-")) {
       const projectType = hash.replace("#portfolio-", "");
@@ -297,8 +283,7 @@ $(document).ready(function () {
   }
 
   /**
-   * Initializes a portfolio subsection if accessed directly via URL
-   * @param {string} projectType - Type of project to initialize
+   * This initializes a portfolio subsection if accessed directly via URL
    */
   function initializePortfolioSubsection(projectType) {
     if (["automotive", "communication", "brand"].includes(projectType)) {
@@ -307,18 +292,14 @@ $(document).ready(function () {
     }
   }
 
-  // Call initialization
+  // Call the initialization function
   initializePortfolio();
 
-  // Make initializePortfolioSubsection accessible to navigation.js
+  // Make some functions available globally so other scripts can use them
   window.initializePortfolioSubsection = initializePortfolioSubsection;
-
-  // Make showPortfolioProject accessible to navigation.js
   window.showPortfolioProject = showPortfolioProject;
-
-  // Make showPortfolioMain accessible to navigation.js
   window.showPortfolioMain = showPortfolioMain;
 
-  // Log initialization complete
-  console.log("Portfolio JavaScript initialization complete");
+  // Just a log to confirm the script loaded
+  console.log("Portfolio JavaScript loaded");
 });

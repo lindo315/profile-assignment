@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bizii Vlogz - Content Creator, Designer, Videographer</title>
 
-    <!-- Google Fonts - Montserrat (Light, Regular, Medium, Bold, Black) -->
+    <!-- Got these Google Fonts from their website -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -13,7 +13,7 @@
       rel="stylesheet"
     />
 
-    <!-- Font utility classes -->
+    <!-- Added these utility classes to make it easier to adjust font weights -->
     <style>
       body {
         font-family: "Montserrat", sans-serif;
@@ -32,7 +32,7 @@
       }
     </style>
 
-    <!-- Main stylesheets -->
+    <!-- All my CSS files - separated them to keep things organized -->
     <link rel="stylesheet" href="css/base.css" />
     <link rel="stylesheet" href="css/animations.css" />
     <link rel="stylesheet" href="css/home.css" />
@@ -42,8 +42,16 @@
     <link rel="stylesheet" href="css/project-direct-fix.css" />
     <link rel="stylesheet" href="css/contact.css" />
 
-    <!-- jQuery library -->
+    <!-- jQuery library for all the interactive stuff -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Magnific Popup jQuery plugin for lightbox galleries -->
+    <!-- I might not use it cause it's causing conflicts with portfolio structuring -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css"
+    />
   </head>
   <body>
     <!-- HOME SECTION -->
@@ -53,7 +61,8 @@
         <img src="images/icons/BIZII-logo.png" alt="BIZII Logo" />
       </div>
 
-      <!-- Main navigation -->
+      <!-- Main navigation - I'm using the same menu on all sections -->
+      <!-- Also could repeat navs since some pages have different page/nav colors -->
       <nav class="navbar">
         <ul class="nav-links">
           <li><a href="#home" class="active">Home</a></li>
@@ -63,7 +72,7 @@
         </ul>
       </nav>
 
-      <!-- Background logo animation -->
+      <!-- Background logo animation - this makes the page less plain -->
       <div class="background-logo">
         <img
           class="home-logo"
@@ -72,14 +81,14 @@
         />
       </div>
 
-      <!-- Home content -->
+      <!-- Home content - my name and what I do -->
       <div class="home-content">
         <h1>I'm <span class="highlight">BIZII VLOGZ</span></h1>
         <p><span class="light">AUTOMOTIVE</span> FILM PHOTOGRAPHER</p>
         <p><span class="light">BRAND IDENTITY</span> DESIGNER</p>
         <p><span class="light">SOCIAL MEDIA</span> MANAGER</p>
 
-        <!-- Social media icons -->
+        <!-- Social media icons - linked to my accounts -->
         <div class="social-icons">
           <a
             href="https://instagram.com/unknwn35mm"
@@ -108,12 +117,12 @@
 
     <!-- ABOUT SECTION -->
     <section id="about" class="section about-section">
-      <!-- Logo in top-left corner -->
+      <!-- Logo in top-left corner - using the red version on white background -->
       <div class="logo">
         <img src="images/icons/BIZII-logo-red.png" alt="BIZII Logo" />
       </div>
 
-      <!-- Main navigation -->
+      <!-- Same navigation menu as before -->
       <nav class="navbar">
         <ul class="nav-links">
           <li><a href="#home">Home</a></li>
@@ -126,12 +135,12 @@
       <!-- About content -->
       <div class="section-content about-section-content">
         <div class="about-content">
-          <!-- Profile image -->
+          <!-- Profile image - need to update this with a better photo -->
           <div class="about-image">
             <img src="images/profile.jpg" alt="Profile picture" />
           </div>
 
-          <!-- About text -->
+          <!-- About text - information about me and my approach -->
           <div class="about-text">
             <!-- Section header with underline -->
             <div class="about-header">
@@ -161,7 +170,7 @@
               <br /><span class="connect-text">CONNECT NOW.</span>
             </p>
 
-            <!-- Skills section -->
+            <!-- Skills section - apps I'm good at -->
             <div class="skills-section">
               <h3 class="skills-title">PROFICIENT APPS:</h3>
               <div class="skills-icons">
@@ -186,12 +195,12 @@
 
     <!-- PORTFOLIO SECTION -->
     <section id="portfolio" class="section portfolio-section">
-      <!-- Logo in top-left corner -->
+      <!-- Logo in top-left corner - using white version on red background -->
       <div class="logo">
         <img src="images/icons/BIZII-logo.png" alt="BIZII Logo" />
       </div>
 
-      <!-- Main navigation -->
+      <!-- Same navigation again -->
       <nav class="navbar">
         <ul class="nav-links">
           <li><a href="#home">Home</a></li>
@@ -251,7 +260,7 @@
 
       <!-- AUTOMOTIVE PHOTOGRAPHY PROJECT VIEW -->
       <div id="project-automotive" class="portfolio-view project-view">
-        <!-- Use our custom grid layout with specific class names to avoid conflicts -->
+        <!-- Using my custom grid layout to avoid style conflicts -->
         <div class="bizii-project-layout">
           <!-- Left column: title and text -->
           <div class="bizii-project-info">
@@ -419,7 +428,7 @@
         <img src="images/icons/BIZII-logo.png" alt="BIZII Logo" />
       </div>
 
-      <!-- Main navigation -->
+      <!-- Same navigation again -->
       <nav class="navbar">
         <ul class="nav-links">
           <li><a href="#home">Home</a></li>
@@ -438,14 +447,14 @@
         />
       </div>
 
-      <!-- Contact content (using home-content styling) -->
+      <!-- Contact content (using home-content styling for consistency) -->
       <div class="home-content">
         <h1>HIT <span class="highlight">ME UP,</span></h1>
         <h1>
           <span class="highlight">LET'S WORK!</span>
         </h1>
 
-        <!-- Social media icons -->
+        <!-- Social media icons - same as home section -->
         <div class="social-icons">
           <a
             href="https://instagram.com/unknwn35mm"
@@ -478,7 +487,6 @@
     <script src="js/portfolio.js"></script>
     <script src="js/project-view.js"></script>
     <script src="js/project-direct-fix.js"></script>
-    <script src="js/form-validation.js"></script>
     <script src="js/animations.js"></script>
   </body>
 </html>

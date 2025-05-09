@@ -1,15 +1,9 @@
-/*
-BIZII Single-Page Website - Project View JavaScript
-Author: BIZII
-Description: Handles project views including automotive carousel and static galleries
-*/
-
+// Wait for the document to load
 $(document).ready(function () {
-  // -------------------------------------------------------------------------
   // AUTOMOTIVE PHOTOGRAPHY CAROUSEL
-  // -------------------------------------------------------------------------
 
-  // Store the automotive images in an array for the carousel
+  // Store all the automotive images and captions in an array
+  // This makes it easier to loop through them in the carousel
   const automotiveImages = [
     {
       src: "images/auto/1.jpg",
@@ -33,49 +27,55 @@ $(document).ready(function () {
     },
   ];
 
+  // Keep track of which image we're showing
   let currentImageIndex = 0;
 
-  // Initialize automotive carousel
+  // Set up the automotive carousel
   function initAutomotiveCarousel() {
-    console.log("Initializing automotive carousel...");
+    console.log("Setting up automotive carousel...");
 
-    // Create carousel markup
+    // Create the HTML for the carousel
+    // I find it easier to just create the whole HTML structure at once
     const carouselHTML = `
-        <div class="carousel-container">
-          <button class="carousel-arrow prev-arrow">&lt;</button>
-          <div class="carousel-image-container">
-            <img src="${
-              automotiveImages[0].src
-            }" alt="BMW Photography" class="carousel-image">
-            <div class="image-caption">${automotiveImages[0].caption}</div>
+          <div class="carousel-container">
+            <button class="carousel-arrow prev-arrow">&lt;</button>
+            <div class="carousel-image-container">
+              <img src="${
+                automotiveImages[0].src
+              }" alt="BMW Photography" class="carousel-image">
+              <div class="image-caption">${automotiveImages[0].caption}</div>
+            </div>
+            <button class="carousel-arrow next-arrow">&gt;</button>
+            <div class="carousel-indicators">
+              ${automotiveImages
+                .map(
+                  (_, index) =>
+                    `<button class="carousel-indicator ${
+                      index === 0 ? "active" : ""
+                    }" data-index="${index}"></button>`
+                )
+                .join("")}
+            </div>
           </div>
-          <button class="carousel-arrow next-arrow">&gt;</button>
-          <div class="carousel-indicators">
-            ${automotiveImages
-              .map(
-                (_, index) =>
-                  `<button class="carousel-indicator ${
-                    index === 0 ? "active" : ""
-                  }" data-index="${index}"></button>`
-              )
-              .join("")}
-          </div>
-        </div>
-      `;
+        `;
 
     // Replace the existing project showcase with our new carousel
     $("#project-automotive .project-showcase").html(carouselHTML);
 
-    // Set up event handlers
+    // Set up the event handlers for the previous and next buttons
     $("#project-automotive .prev-arrow").on("click", showPreviousImage);
     $("#project-automotive .next-arrow").on("click", showNextImage);
+
+    // Set up the event handlers for the indicator dots
     $("#project-automotive .carousel-indicator").on("click", function () {
       const index = $(this).data("index");
       showImage(index);
     });
 
-    // Add keyboard navigation
+    // Add keyboard navigation (arrow keys)
+    // This was a cool feature I found online and wanted to add
     $(document).on("keydown", function (e) {
+      // Only handle keys if we're viewing the automotive project
       if ($("#project-automotive").hasClass("active")) {
         // Left arrow key
         if (e.keyCode === 37) {
@@ -88,7 +88,8 @@ $(document).ready(function () {
       }
     });
 
-    // Add swipe support for mobile
+    // Add swipe support for mobile devices
+    // I had to look up how to do this, but it's pretty cool!
     const carouselEl = $("#project-automotive .carousel-container")[0];
     if (carouselEl) {
       let touchStartX = 0;
@@ -113,36 +114,41 @@ $(document).ready(function () {
     }
   }
 
-  // Show previous image in carousel
+  // Show the previous image in the carousel
   function showPreviousImage() {
+    // Loop back to the last image if we're at the first one
     currentImageIndex =
       (currentImageIndex - 1 + automotiveImages.length) %
       automotiveImages.length;
     showImage(currentImageIndex);
   }
 
-  // Show next image in carousel
+  // Show the next image in the carousel
   function showNextImage() {
+    // Loop back to the first image if we're at the last one
     currentImageIndex = (currentImageIndex + 1) % automotiveImages.length;
     showImage(currentImageIndex);
   }
 
-  // Show specific image by index
+  // Show a specific image by index
   function showImage(index) {
+    // Make sure the index is valid
     if (index < 0 || index >= automotiveImages.length) return;
 
+    // Update the current index
     currentImageIndex = index;
 
-    // Update image and caption with fade effect
+    // Use a fade effect to transition between images
+    // This looks nicer than just swapping them instantly
     const imageContainer = $("#project-automotive .carousel-image-container");
     imageContainer.fadeOut(200, function () {
-      // Update image source
+      // Update the image source
       imageContainer.find("img").attr("src", automotiveImages[index].src);
-      // Update caption text
+      // Update the caption text
       imageContainer
         .find(".image-caption")
         .html(automotiveImages[index].caption);
-      // Update indicators
+      // Update the indicator dots
       $("#project-automotive .carousel-indicator").removeClass("active");
       $(
         "#project-automotive .carousel-indicator[data-index='" + index + "']"
@@ -152,33 +158,35 @@ $(document).ready(function () {
     });
   }
 
-  // -------------------------------------------------------------------------
   // COMMUNICATION DESIGN STATIC GALLERY
-  // -------------------------------------------------------------------------
 
+  // Set up the communication design gallery
   function initCommunicationGallery() {
-    console.log("Initializing communication design gallery...");
+    console.log("Setting up communication design gallery...");
 
+    // Create HTML for a static gallery
+    // This one doesn't need a carousel since there's just one main image
     const communicationHTML = `
-        <div class="project-gallery">
-          <div class="gallery-main-image">
-            <img src="images/UIUberEats.png" alt="Old Mutual SMEGo Design">
-          </div>
-          <div class="gallery-thumbnails">
-            <div class="gallery-thumbnail">
-              <img src="images/communication/2.jpg" alt="TAP2PAY">
+          <div class="project-gallery">
+            <div class="gallery-main-image">
+              <img src="images/UIUberEats.png" alt="Old Mutual SMEGo Design">
             </div>
-            <div class="gallery-thumbnail">
-              <img src="images/communication/3.jpg" alt="International Women's Day">
+            <div class="gallery-thumbnails">
+              <div class="gallery-thumbnail">
+                <img src="images/communication/2.jpg" alt="TAP2PAY">
+              </div>
+              <div class="gallery-thumbnail">
+                <img src="images/communication/3.jpg" alt="International Women's Day">
+              </div>
             </div>
           </div>
-        </div>
-      `;
+        `;
 
     // Replace project showcase with static gallery
     $("#project-communication .project-showcase").html(communicationHTML);
 
-    // Add click event to thumbnails
+    // Add click events to thumbnails
+    // When clicked, they replace the main image
     $("#project-communication .gallery-thumbnail").on("click", function () {
       const imgSrc = $(this).find("img").attr("src");
       $("#project-communication .gallery-main-image img").fadeOut(
@@ -190,33 +198,34 @@ $(document).ready(function () {
     });
   }
 
-  // -------------------------------------------------------------------------
   // BRAND IDENTITY DESIGN STATIC GALLERY
-  // -------------------------------------------------------------------------
 
+  // Set up the brand identity gallery (similar to communication gallery)
   function initBrandGallery() {
-    console.log("Initializing brand identity gallery...");
+    console.log("Setting up brand identity gallery...");
 
+    // Create HTML for a static gallery
     const brandHTML = `
-        <div class="project-gallery">
-          <div class="gallery-main-image">
-            <img src="images/Black.png" alt="Giant Step Brand Identity">
-          </div>
-          <div class="gallery-thumbnails">
-            <div class="gallery-thumbnail">
-              <img src="images/brand/2.jpg" alt="Brand Identity System">
+          <div class="project-gallery">
+            <div class="gallery-main-image">
+              <img src="images/Black.png" alt="Giant Step Brand Identity">
             </div>
-            <div class="gallery-thumbnail">
-              <img src="images/brand/3.jpg" alt="Giant Step">
+            <div class="gallery-thumbnails">
+              <div class="gallery-thumbnail">
+                <img src="images/brand/2.jpg" alt="Brand Identity System">
+              </div>
+              <div class="gallery-thumbnail">
+                <img src="images/brand/3.jpg" alt="Giant Step">
+              </div>
             </div>
           </div>
-        </div>
-      `;
+        `;
 
     // Replace project showcase with static gallery
     $("#project-brand .project-showcase").html(brandHTML);
 
-    // Add click event to thumbnails
+    // Add click events to thumbnails
+    // Same functionality as the communication gallery
     $("#project-brand .gallery-thumbnail").on("click", function () {
       const imgSrc = $(this).find("img").attr("src");
       $("#project-brand .gallery-main-image img").fadeOut(200, function () {
@@ -225,21 +234,19 @@ $(document).ready(function () {
     });
   }
 
-  // -------------------------------------------------------------------------
   // PROJECT NAVIGATION
-  // -------------------------------------------------------------------------
 
-  // Handle back to portfolio button clicks
+  // Handle clicks on the "Back to Portfolio" button
   $(".back-to-portfolio").on("click", function () {
-    console.log("Back to portfolio clicked");
+    console.log("Going back to portfolio grid");
 
     // Hide the active project view
     $(".project-view.active").removeClass("active");
 
-    // Show main portfolio view
+    // Show the main portfolio grid
     $("#portfolio-main").addClass("active");
 
-    // Remove project-active class for white background
+    // Change background back to red
     $("#portfolio").removeClass("project-active");
 
     // Update URL hash
@@ -249,21 +256,21 @@ $(document).ready(function () {
     updateLogoForBackground(false);
   });
 
-  // Open a specific project
+  // Handle clicks on portfolio cards to open projects
   $(".portfolio-card").on("click", function () {
     const projectType = $(this).data("project");
-    console.log(`Opening project: ${projectType}`);
+    console.log(`Opening ${projectType} project`);
 
-    // Add project active class for white background
+    // Change background to white for project view
     $("#portfolio").addClass("project-active");
 
-    // Hide main portfolio view
+    // Hide the main portfolio grid
     $("#portfolio-main").removeClass("active");
 
-    // Show selected project view
+    // Show the selected project
     $(`#project-${projectType}`).addClass("active");
 
-    // Reset to first image in carousel if automotive
+    // Reset to first image if it's automotive
     if (projectType === "automotive") {
       currentImageIndex = 0;
       showImage(0);
@@ -272,56 +279,56 @@ $(document).ready(function () {
     // Update URL hash
     history.pushState(null, null, `#portfolio-${projectType}`);
 
-    // Update logo if needed
+    // Update logo for white background
     updateLogoForBackground(true);
   });
 
   /**
-   * Updates the logo image based on background
-   * @param {boolean} isProjectView - Whether we're in a project view
+   * This updates the logo image based on which background color we're using
    */
   function updateLogoForBackground(isProjectView) {
-    // Replace with your white and dark logo images as needed
+    // Get the logo
     const logoImg = $("#portfolio .logo img");
 
     if (isProjectView) {
-      // On white background (project view)
+      // On white background (project view) - use red logo
       logoImg.attr("src", "images/icons/BIZII-logo-red.png");
     } else {
-      // On red background (main portfolio view)
+      // On red background (main portfolio) - use white logo
       logoImg.attr("src", "images/icons/BIZII-logo.png");
     }
   }
 
-  // -------------------------------------------------------------------------
   // INITIALIZATION
-  // -------------------------------------------------------------------------
 
   // Initialize all project views
   function initializeProjectViews() {
+    // Set up all three project galleries
     initAutomotiveCarousel();
     initCommunicationGallery();
     initBrandGallery();
 
-    // Check URL hash to see if we should start in a specific view
+    // Check if we should start in a specific project view
+    // This is for direct links to projects
     const hash = window.location.hash;
     if (hash.startsWith("#portfolio-")) {
       const projectType = hash.replace("#portfolio-", "");
       if (["automotive", "communication", "brand"].includes(projectType)) {
-        // Trigger click on the corresponding portfolio card
+        // Trigger a click on the corresponding portfolio card
         $(`.portfolio-card[data-project="${projectType}"]`).click();
       }
     }
   }
 
-  // Run initialization
+  // Run the initialization
   initializeProjectViews();
 
-  // Log initialization complete
-  console.log("Project View JavaScript initialization complete");
-
-  // Make functions accessible to other scripts if needed
+  // Make these functions available to other scripts
+  // Not sure if this is the best way but it works
   window.showImage = showImage;
   window.showPreviousImage = showPreviousImage;
   window.showNextImage = showNextImage;
+
+  // Just a log to confirm the script loaded
+  console.log("Project View JavaScript loaded");
 });

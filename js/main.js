@@ -1,44 +1,39 @@
-/*
-BIZII Single-Page Website - Main JavaScript
-Author: BIZII
-Description: Core functionality and initialization for the website
-*/
-
+// Wait until the document is fully loaded before running any code
 $(document).ready(function () {
-  // ------------------------------------------------------------------------
-  // INITIALIZATION
-  // ------------------------------------------------------------------------
+  // INITIALIZATION - This sets up the website when it first loads
 
   /**
-   * Initial setup when page loads
-   * - Set active section based on URL hash or default to home
-   * - Initialize section visibility
+   * This function does the initial setup when the page loads
+   * It figures out which section to show based on the URL hash
    */
   function initialize() {
-    console.log("Initializing website...");
+    console.log("Starting website initialization...");
 
-    // Set initial active section based on URL hash or default to home
+    // Get the current URL hash or default to home if there isn't one
     const hash = window.location.hash || "#home";
-    const section = hash.replace("#portfolio-", "#portfolio"); // Handle portfolio sub-sections
+
+    // Handle portfolio sub-sections specially
+    const section = hash.replace("#portfolio-", "#portfolio");
 
     // Remove active class from all sections and navigation links
     $(".section").removeClass("active");
     $(".nav-links a").removeClass("active");
 
-    // Activate correct section and navigation link
+    // Activate the correct section and navigation link
     $(section).addClass("active");
     $(`.nav-links a[href="${section}"]`).addClass("active");
 
-    // If we're in portfolio section, check for sub-section
+    // If we're in the portfolio section, check for a specific project
     if (hash.startsWith("#portfolio-")) {
-      // Initialize portfolio sub-section
+      // Initialize the specific portfolio sub-section
       initializePortfolioSubsection(hash.replace("#portfolio-", ""));
     }
 
-    // Initialize scroll to top
+    // Scroll to the top of the page
     window.scrollTo(0, 0);
 
-    // Apply initial fade-in animation to the site
+    // Add a fade-in animation to the site when it loads
+    // I think this looks more professional than just appearing instantly
     $("body")
       .css("opacity", "0")
       .animate({ opacity: 1 }, 800, function () {
@@ -46,14 +41,11 @@ $(document).ready(function () {
       });
   }
 
-  // ------------------------------------------------------------------------
-  // HELPERS & UTILITIES
-  // ------------------------------------------------------------------------
+  // HELPER FUNCTIONS - These are utility functions I use in multiple places
 
   /**
-   * Adds a CSS animation keyframe dynamically to the document
-   * @param {string} name - The name of the animation
-   * @param {string} rules - The keyframe rules
+   * This function adds CSS keyframe animations dynamically
+   * I learned this technique from a tutorial - it's super useful!
    */
   function addKeyframeAnimation(name, rules) {
     $("<style>")
@@ -63,22 +55,22 @@ $(document).ready(function () {
   }
 
   /**
-   * Checks if the device is mobile
-   * @returns {boolean} - True if mobile device
+   * This checks if the site is being viewed on a mobile device
+   * so I can adjust certain behaviors for smaller screens
    */
   function isMobileDevice() {
     return window.innerWidth <= 768;
   }
 
-  // ------------------------------------------------------------------------
-  // ANIMATIONS
-  // ------------------------------------------------------------------------
+  // ANIMATIONS - These handle various animations throughout the site
 
   /**
-   * Animates the background logo on the home page
+   * This animates the background logo on the home page
+   * It creates a subtle floating effect to make the page less static
    */
   function animateHomeLogo() {
-    // Subtle floating animation for background logo
+    // Apply a subtle animation to the background logo
+    // I'm using CSS transforms for better performance
     $(".home-logo")
       .css({
         transform: "translate(-50%, -50%) scale(1.05)",
@@ -91,17 +83,18 @@ $(document).ready(function () {
         },
         4000,
         function () {
-          // Loop animation
+          // Loop the animation by calling the function again
           animateHomeLogo();
         }
       );
   }
 
   /**
-   * Adds dynamic animations to the page
+   * This sets up all the animations used throughout the site
    */
   function setupAnimations() {
-    // Add shake animation for form validation
+    // Add the shake animation for form validation
+    // This was tricky to get right - had to experiment with the values
     addKeyframeAnimation(
       "shake",
       `
@@ -111,10 +104,11 @@ $(document).ready(function () {
     `
     );
 
-    // Start background logo animation
+    // Start the background logo animation
     animateHomeLogo();
 
-    // Bounce animation for arrow in contact section
+    // Add a bounce animation for the arrow in the contact section
+    // This helps draw attention to it
     setInterval(function () {
       $(".arrow-down")
         .animate({ marginTop: "10px" }, 800)
@@ -122,32 +116,28 @@ $(document).ready(function () {
     }, 1600);
   }
 
-  // ------------------------------------------------------------------------
-  // EVENT HANDLERS
-  // ------------------------------------------------------------------------
+  // EVENT HANDLERS - These respond to user interactions
 
   /**
-   * Handles window resize events
+   * This handles window resize events to make sure everything
+   * still looks good when the window size changes
    */
   function handleResize() {
-    // Adjust layout for different screen sizes
+    // I'll add more specific handling here if needed
     console.log("Window resized");
-
-    // Additional resize handling if needed
   }
 
   /**
-   * Handles window scroll events
+   * This handles window scroll events
+   * I might use this later for scroll animations
    */
   function handleScroll() {
-    // Handle scroll events if needed
+    // placeholder for scroll event handling
   }
 
-  // ------------------------------------------------------------------------
-  // INITIALIZATION CALLS
-  // ------------------------------------------------------------------------
+  // INITIALIZATION CALLS - These actually run the functions defined above
 
-  // Initialize animations
+  // Set up animations
   setupAnimations();
 
   // Initialize the site
@@ -157,6 +147,6 @@ $(document).ready(function () {
   $(window).on("resize", handleResize);
   $(window).on("scroll", handleScroll);
 
-  // Log initialization complete
-  console.log("Main JavaScript initialization complete");
+  // Just a log to show the script loaded properly
+  console.log("Main JavaScript loaded");
 });

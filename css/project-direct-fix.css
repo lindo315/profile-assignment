@@ -1,9 +1,5 @@
-/* 
-* Direct Fix for Project View Layout
-* This is a targeted, specific CSS that avoids conflicts
-*/
-
-/* First, reset some styles for the project view to avoid conflicts */
+/* Created a whole new script to avoid conflicts since the structuring kept getting borken */
+/* Renamed a few classes and started afresh - and it worked so I'm not touching other stuff from here */
 .project-view.portfolio-view .project-content {
   display: block; /* Reset any flex or grid */
   position: relative;
@@ -13,7 +9,7 @@
   padding: 2rem;
 }
 
-/* Create a two-column grid layout */
+/* A two-column grid layout */
 .bizii-project-layout {
   display: grid;
   grid-template-columns: 1fr 1fr; /* Two equal columns */

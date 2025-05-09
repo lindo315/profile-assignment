@@ -1,43 +1,45 @@
-/* 
-BIZII Single-Page Website - Portfolio Section Styles
-Author: BIZII
-Description: Styling for the Portfolio section and project showcases
-*/
-
-/* ---------- PORTFOLIO SECTION BASE ---------- */
+/* PORTFOLIO SECTION BASE */
 .portfolio-section {
+  /* Red background for the main portfolio view */
   background-color: var(--primary-red);
   color: var(--white);
   overflow-x: hidden;
   position: relative;
+
+  /* Smooth transition when changing background color */
   transition: background-color 0.5s ease;
 }
 
-/* Change background for project detail views */
+/* This class gets added to change the background for project detail views */
 .portfolio-section.project-active {
   background-color: var(--white);
 }
 
-/* Portfolio section navigation links */
+/* Navigation links in the portfolio section */
 .portfolio-section .nav-links a {
   color: var(--white);
+  /* Smooth transition when changing link color */
   transition: color 0.5s ease;
 }
 
+/* Change link color on white background */
 .portfolio-section.project-active .nav-links a {
   color: var(--dark-bg);
 }
 
+/* Active link styles */
 .portfolio-section .nav-links a.active {
   color: var(--primary-red-light);
 }
 
+/* Active link on white background */
 .portfolio-section.project-active .nav-links a.active {
   color: var(--primary-red);
 }
 
-/* ---------- PORTFOLIO VIEWS ---------- */
+/* PORTFOLIO VIEWS */
 .portfolio-view {
+  /* Hide all views by default */
   display: none;
   opacity: 0;
   transition: opacity 0.5s ease;
@@ -45,12 +47,13 @@ Description: Styling for the Portfolio section and project showcases
   height: 100%;
 }
 
+/* Active view gets shown */
 .portfolio-view.active {
   display: block;
   opacity: 1;
 }
 
-/* ---------- PORTFOLIO HEADERS ---------- */
+/* PORTFOLIO HEADERS */
 .portfolio-header {
   margin-bottom: 2rem;
 }
@@ -63,7 +66,7 @@ Description: Styling for the Portfolio section and project showcases
   text-transform: uppercase;
   line-height: 0.9;
   margin-bottom: 0.5rem;
-  letter-spacing: -3px;
+  letter-spacing: -3px; /* I like this tight spacing for headings */
   transition: color 0.5s ease;
 }
 
@@ -73,10 +76,12 @@ Description: Styling for the Portfolio section and project showcases
   color: var(--primary-red);
 }
 
+/* Title color change for project view */
 .portfolio-section.project-active .project-title {
   color: var(--primary-red);
 }
 
+/* The red underline below titles - the image is a bit tricky to manipulate */
 .title-underline {
   max-width: 300px;
   height: auto;
@@ -84,27 +89,28 @@ Description: Styling for the Portfolio section and project showcases
   margin-top: -0.5rem;
 }
 
-/* ---------- PORTFOLIO GRID LAYOUT ---------- */
+/* PORTFOLIO GRID LAYOUT */
 .portfolio-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
+  grid-template-columns: repeat(3, 1fr); /* Three cards per row */
+  gap: 2rem; /* Space between cards */
   max-width: 1400px;
   margin: 0 auto;
 }
 
 /* Portfolio card styling */
 .portfolio-card {
-  background-color: rgba(255, 255, 255, 0.05);
+  background-color: rgba(255, 255, 255, 0.05); /* Semi-transparent white */
   border-radius: 10px;
   overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer;
+  cursor: pointer; /* Show it's clickable */
 }
 
+/* Hover effect for cards */
 .portfolio-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  transform: translateY(-10px); /* Lift card slightly */
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2); /* Add shadow for depth */
 }
 
 /* Card image container */
@@ -121,10 +127,11 @@ Description: Styling for the Portfolio section and project showcases
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: cover; /* Ensure image covers the area nicely */
   transition: transform 0.5s ease;
 }
 
+/* Zoom effect on card hover */
 .portfolio-card:hover .portfolio-card-image img {
   transform: scale(1.05);
 }
@@ -145,7 +152,7 @@ Description: Styling for the Portfolio section and project showcases
   text-transform: uppercase;
 }
 
-/* ---------- PROJECT VIEW LAYOUT ---------- */
+/* PROJECT VIEW LAYOUT */
 /* Project header banner for detail view */
 .project-header-banner {
   position: absolute;
@@ -156,15 +163,16 @@ Description: Styling for the Portfolio section and project showcases
   z-index: 0;
 }
 
+/* Two-column layout for project details */
 .project-content {
   display: flex;
   gap: 4rem;
   max-width: 1400px;
   margin: 0 auto;
-  margin-top: 9rem; /* Additional margin to accommodate the header banner */
+  margin-top: 9rem; /* Extra margin for the header banner */
 }
 
-/* Project description text */
+/* Project description column */
 .project-description {
   flex: 1;
   max-width: 500px;
@@ -172,23 +180,25 @@ Description: Styling for the Portfolio section and project showcases
 }
 
 .project-description p {
-  color: var(--dark-bg); /* Change text color for project details */
+  color: var(--dark-bg); /* Dark text on white background */
   font-size: 1.1rem;
   line-height: 1.6;
   margin-bottom: 1.5rem;
   transition: color 0.5s ease;
 }
 
+/* Text color for project details */
 .portfolio-section.project-active .project-description p {
   color: var(--dark-bg);
 }
 
+/* Bold text highlighting */
 .project-description strong {
   font-weight: 700;
   color: var(--primary-red);
 }
 
-/* Project showcase area */
+/* Project showcase column */
 .project-showcase {
   flex: 1.2;
   position: relative;
@@ -196,6 +206,7 @@ Description: Styling for the Portfolio section and project showcases
   margin: 0 auto;
 }
 
+/* Project image container */
 .project-image {
   border-radius: 10px;
   overflow: hidden;
@@ -227,11 +238,12 @@ Description: Styling for the Portfolio section and project showcases
   transition: color 0.5s ease;
 }
 
+/* Caption color for main portfolio view */
 .portfolio-section:not(.project-active) .image-caption {
   color: rgba(255, 255, 255, 0.8);
 }
 
-/* ---------- PROJECT NAVIGATION ---------- */
+/* PROJECT NAVIGATION */
 .project-navigation {
   display: flex;
   align-items: center;
@@ -259,6 +271,7 @@ Description: Styling for the Portfolio section and project showcases
   background-color: var(--primary-red-light);
 }
 
+/* Arrow styling for main portfolio view */
 .portfolio-section:not(.project-active) .nav-arrow {
   background-color: rgba(255, 255, 255, 0.1);
 }
@@ -284,6 +297,7 @@ Description: Styling for the Portfolio section and project showcases
   background-color: var(--primary-red-light);
 }
 
+/* Button styling for main portfolio view */
 .portfolio-section:not(.project-active) .back-to-portfolio {
   background: none;
   border: 1px solid rgba(255, 255, 255, 0.3);
@@ -294,7 +308,8 @@ Description: Styling for the Portfolio section and project showcases
   border-color: var(--white);
 }
 
-/* ---------- RESPONSIVE ADJUSTMENTS ---------- */
+/* RESPONSIVENESS */
+/* Tweaks for large screens */
 @media screen and (max-width: 1200px) {
   .portfolio-title {
     font-size: 6rem;
@@ -304,10 +319,12 @@ Description: Styling for the Portfolio section and project showcases
     font-size: 4rem;
   }
 
+  /* Switch to two columns on medium screens */
   .portfolio-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
+  /* Stack columns instead of side-by-side */
   .project-content {
     flex-direction: column;
   }
@@ -325,6 +342,7 @@ Description: Styling for the Portfolio section and project showcases
   }
 }
 
+/* Tweaks for tablets */
 @media screen and (max-width: 768px) {
   .portfolio-view {
     padding: 6rem 2rem 2rem;
@@ -342,6 +360,7 @@ Description: Styling for the Portfolio section and project showcases
     font-size: 3rem;
   }
 
+  /* One column on smaller screens */
   .portfolio-grid {
     grid-template-columns: 1fr;
   }
@@ -350,6 +369,7 @@ Description: Styling for the Portfolio section and project showcases
     font-size: 1.2rem;
   }
 
+  /* Stack navigation on smaller screens */
   .project-navigation {
     flex-wrap: wrap;
     gap: 1rem;
@@ -362,6 +382,7 @@ Description: Styling for the Portfolio section and project showcases
   }
 }
 
+/* Tweaks for phones */
 @media screen and (max-width: 576px) {
   .portfolio-view {
     padding: 6rem 1.5rem 1.5rem;

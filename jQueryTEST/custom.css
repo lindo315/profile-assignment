@@ -1,0 +1,123 @@
+/* Making the overlay darker */
+.mfp-bg {
+  background-color: #2b2627; /* My dark background color */
+  opacity: 0.95; /* More opaque for contrast */
+}
+
+/* Styling the image container */
+.mfp-figure {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* Styling the image caption */
+.mfp-title {
+  font-family: "Montserrat", sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-align: center;
+  padding: 1rem 0;
+  letter-spacing: 0.5px;
+}
+
+/* Styling the image counter */
+.mfp-counter {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+/* Styling the close button */
+button.mfp-close {
+  color: #ffffff;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+button.mfp-close:hover {
+  opacity: 1;
+}
+
+/* Styling the arrow buttons */
+.mfp-arrow {
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.mfp-arrow:hover {
+  opacity: 1;
+}
+
+/* Adding a semi-transparent border to the active image */
+.mfp-figure:after {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Custom zoom animation */
+.mfp-with-zoom .mfp-container,
+.mfp-with-zoom.mfp-bg {
+  opacity: 0;
+  transition: all 0.3s ease-out;
+}
+
+.mfp-with-zoom.mfp-ready .mfp-container {
+  opacity: 1;
+}
+
+.mfp-with-zoom.mfp-ready.mfp-bg {
+  opacity: 0.95;
+}
+
+.mfp-with-zoom.mfp-removing .mfp-container,
+.mfp-with-zoom.mfp-removing.mfp-bg {
+  opacity: 0;
+}
+
+/* Zoom animation for images */
+.mfp-with-zoom.mfp-ready .mfp-content {
+  transform: scale(1);
+}
+
+.mfp-with-zoom .mfp-content {
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+  transform: scale(0.8);
+}
+
+.mfp-with-zoom.mfp-bg {
+  opacity: 0;
+  transition: all 0.3s ease-out;
+}
+
+/* Custom styling for the gallery navigation */
+.mfp-arrow-left {
+  left: 15px;
+}
+
+.mfp-arrow-right {
+  right: 15px;
+}
+
+/* Custom styling for error messages */
+.mfp-preloader {
+  color: #9a2f2b; /* My primary red color */
+  font-family: "Montserrat", sans-serif;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+  .mfp-arrow-left {
+    left: 5px;
+  }
+
+  .mfp-arrow-right {
+    right: 5px;
+  }
+
+  .mfp-title {
+    font-size: 0.9rem;
+    padding: 0.75rem 0;
+  }
+}

@@ -1,10 +1,4 @@
-/* 
-BIZII Single-Page Website - Base Styles
-Author: BIZII
-Description: Core stylesheet with reset, variables, and base styling
-*/
-
-/* ---------- RESET STYLES ---------- */
+/* RESET STYLES */
 *,
 *::before,
 *::after {
@@ -13,9 +7,9 @@ Description: Core stylesheet with reset, variables, and base styling
   box-sizing: border-box;
 }
 
-/* ---------- CSS VARIABLES ---------- */
+/* CSS VARIABLES */
 :root {
-  /* Brand Colors */
+  /* Brand Colors - neat way to remember colors too */
   --primary-red: #9a2f2b; /* Main brand red */
   --primary-red-light: #c25d5e; /* Lighter red for accents */
   --light-cream: #eee8e8; /* Light background */
@@ -27,7 +21,7 @@ Description: Core stylesheet with reset, variables, and base styling
   --letter-spacing: -0.05em; /* Tight letter spacing for headings */
 }
 
-/* ---------- BASE ELEMENT STYLING ---------- */
+/* BASE ELEMENT STYLING */
 html {
   scroll-behavior: smooth; /* For smooth internal link scrolling */
 }
@@ -43,15 +37,15 @@ body {
 
 /* Hide scrollbar but allow scrolling */
 body::-webkit-scrollbar {
-  display: none; /* Safari and Chrome */
+  display: none;
 }
 
 body {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
-/* ---------- TYPOGRAPHY ---------- */
+/* TYPOGRAPHY - good to have in one place */
 h1,
 h2,
 h3,
@@ -108,7 +102,7 @@ img {
   display: block;
 }
 
-/* ---------- LAYOUT COMPONENTS ---------- */
+/* LAYOUT COMPONENTS */
 
 /* Basic section structure */
 .section {
@@ -200,7 +194,7 @@ img {
   opacity: 1;
 }
 
-/* ---------- RESPONSIVE BREAKPOINTS ---------- */
+/* RESPONSIVE BREAKPOINTS */
 @media screen and (max-width: 1200px) {
   h2 {
     font-size: 6rem;

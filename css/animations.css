@@ -1,12 +1,6 @@
-/* 
-BIZII Single-Page Website - Animation Styles
-Author: BIZII
-Description: Animation effects for transitions, hovers, and interactive elements
-*/
+/* SOME TRANSITION ANIMATIONS */
 
-/* ---------- TRANSITION ANIMATIONS ---------- */
-
-/* Fade In Up Animation */
+/* Fade In Up Animation - I use this for elements that need to appear as you scroll */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -22,7 +16,7 @@ Description: Animation effects for transitions, hovers, and interactive elements
   animation: fadeInUp 0.8s ease forwards;
 }
 
-/* Animation delays for staggered reveals */
+/* Animation delays so elements appear one after another - looks cooler this way */
 .delay-1 {
   animation-delay: 0.1s;
 }
@@ -39,7 +33,7 @@ Description: Animation effects for transitions, hovers, and interactive elements
   animation-delay: 0.5s;
 }
 
-/* Bounce Animation (for arrows, indicators) */
+/* Bounce Animation - looks good for arrows or indicators to draw attention */
 @keyframes bounce {
   0%,
   20%,
@@ -60,7 +54,7 @@ Description: Animation effects for transitions, hovers, and interactive elements
   animation: bounce 2s infinite;
 }
 
-/* Shake Animation (for form validation errors) */
+/* Shake Animation - used for form validation errors I found this on a tutorial and tweaked the values */
 @keyframes shake {
   0%,
   100% {
@@ -85,7 +79,7 @@ Description: Animation effects for transitions, hovers, and interactive elements
   animation: shake 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
 }
 
-/* Float Animation (for logo) */
+/* Float Animation (it wasn't working before) - makes the logo look nice */
 @keyframes float {
   0% {
     transform: translateY(0px);
@@ -102,7 +96,7 @@ Description: Animation effects for transitions, hovers, and interactive elements
   animation: float 6s ease-in-out infinite;
 }
 
-/* Pulse Animation (for highlights) */
+/* Pulse Animation - subtle effect for highlighted elements */
 @keyframes pulse {
   0% {
     transform: scale(1);
@@ -122,7 +116,7 @@ Description: Animation effects for transitions, hovers, and interactive elements
   animation: pulse 4s ease-in-out infinite;
 }
 
-/* Draw Underline Animation */
+/* Draw Underline Animation - for section titles */
 @keyframes draw-underline {
   from {
     width: 0;
@@ -136,9 +130,9 @@ Description: Animation effects for transitions, hovers, and interactive elements
   animation: draw-underline 1s ease forwards;
 }
 
-/* ---------- HOVER ANIMATIONS ---------- */
+/* HOVER ANIMATIONS */
 
-/* Scale Up on Hover */
+/* Scale Up on Hover - for clickable elements */
 .scale-up {
   transition: transform 0.3s ease;
 }
@@ -147,7 +141,7 @@ Description: Animation effects for transitions, hovers, and interactive elements
   transform: scale(1.05);
 }
 
-/* Slide Up on Hover */
+/* Slide Up on Hover - for cards and boxes */
 .slide-up {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -157,7 +151,7 @@ Description: Animation effects for transitions, hovers, and interactive elements
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
-/* Glow Effect on Hover */
+/* Glow Effect on Hover - for buttons and links */
 .glow {
   transition: box-shadow 0.3s ease;
 }
@@ -166,9 +160,9 @@ Description: Animation effects for transitions, hovers, and interactive elements
   box-shadow: 0 0 15px rgba(154, 47, 43, 0.6);
 }
 
-/* ---------- INTERACTIVE ANIMATIONS ---------- */
+/* INTERACTIVE ANIMATIONS */
 
-/* Arrow Animation (for arrow buttons) */
+/* Arrow Animation - looks nice for buttons */
 .arrow-animation::after {
   content: "→";
   margin-left: 0.5rem;
@@ -179,7 +173,7 @@ Description: Animation effects for transitions, hovers, and interactive elements
   margin-left: 0.8rem;
 }
 
-/* Button Fill Animation */
+/* Button Fill Animation - creates a nice filling effect */
 .button-fill {
   position: relative;
   overflow: hidden;
@@ -202,9 +196,9 @@ Description: Animation effects for transitions, hovers, and interactive elements
   height: 100%;
 }
 
-/* ---------- RESPONSIVE ADJUSTMENTS ---------- */
+/* RESPONSIVENESS  */
 
-/* Disable animations for users who prefer reduced motion */
+/* This disables animations for users who prefer reduced motion It's good for accessibility - I figured it'd be a good add provided it doesn't break */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

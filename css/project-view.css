@@ -1,9 +1,4 @@
-/* 
-* Final CSS Adjustments for Project Views
-* These adjustments should be added to your project-view.css file
-*/
-
-/* Make the project title larger and with proper spacing */
+/* Made the project title larger and with proper spacing */
 .project-title {
   font-size: 6rem;
   line-height: 0.9;
@@ -16,9 +11,9 @@
   z-index: 10;
 }
 
-/* Adjust positioning of the title and content for overlap */
+/* Adjusted positioning of the title and content for overlap */
 .project-description p:first-of-type {
-  margin-top: -1rem; /* Creates overlap with the title */
+  margin-top: -1rem; /* This creates overlap with the title */
   position: relative;
   z-index: 1;
 }
@@ -33,7 +28,7 @@
   z-index: 5;
 }
 
-/* Adjust carousel to better match the reference */
+/* Moved carousel to better match the reference */
 .carousel-container {
   position: relative;
   width: 100%;
@@ -70,7 +65,7 @@
   right: -20px; /* Move slightly closer to the image */
 }
 
-/* Style back to portfolio button to match reference */
+/* Style back to portfolio button */
 .back-to-portfolio {
   background-color: var(--primary-red);
   color: var(--white);
@@ -100,18 +95,16 @@
   height: auto;
 }
 
-/* Ensure proper spacing between sections */
 .project-content {
   display: flex;
   justify-content: space-between;
-  gap: 5rem; /* Increase gap between columns */
+  gap: 5rem;
   max-width: 1400px;
   margin: 0 auto;
-  padding-top: 3rem; /* Add more top padding */
-  padding-bottom: 3rem; /* Add bottom padding */
+  padding-top: 3rem;
+  padding-bottom: 3rem;
 }
 
-/* Adjust column widths to match reference */
 .project-description {
   flex: 1;
   max-width: 45%;
@@ -122,14 +115,12 @@
   max-width: 45%;
 }
 
-/* Fix spacing of paragraphs */
 .project-description p {
   margin-bottom: 1.2rem;
   font-size: 1.1rem;
   line-height: 1.6;
 }
 
-/* Mobile responsiveness */
 @media screen and (max-width: 992px) {
   .project-title {
     font-size: 4rem;

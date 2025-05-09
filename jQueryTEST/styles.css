@@ -1,0 +1,167 @@
+/*
+* Styles for jQuery Test Page
+* This is my custom CSS for the test page to match my main site design
+*/
+
+/* I'm using the same colors from my main site */
+:root {
+  --primary-red: #9a2f2b;
+  --primary-red-light: #c25d5e;
+  --light-cream: #eee8e8;
+  --dark-bg: #2b2627;
+  --white: #ffffff;
+  --grey: #a1a1a1;
+}
+
+/* Basic reset and typography styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  background-color: var(--dark-bg);
+  color: var(--white);
+  line-height: 1.6;
+  padding: 20px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* Heading styles that match my portfolio site */
+h1 {
+  color: var(--primary-red);
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  font-weight: 900;
+  letter-spacing: -0.05em;
+}
+
+h2 {
+  color: var(--primary-red-light);
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+p {
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+}
+
+/* Back button styled like my portfolio buttons */
+.back-link {
+  display: inline-block;
+  background-color: var(--primary-red);
+  color: var(--white);
+  text-decoration: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-top: 2rem;
+  transition: background-color 0.3s ease;
+}
+
+.back-link:hover {
+  background-color: var(--primary-red-light);
+}
+
+/* Gallery grid layout */
+.gallery-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+/* Gallery item styling - similar to my portfolio cards */
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.gallery-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+/* Custom styles for Magnific Popup */
+/* These override the default plugin styles */
+.mfp-title {
+  font-family: "Montserrat", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 10px 0;
+}
+
+.mfp-counter {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+}
+
+/* Adding animations for the popup */
+.mfp-with-zoom .mfp-container,
+.mfp-with-zoom.mfp-bg {
+  opacity: 0;
+  transition: all 0.3s ease-out;
+}
+
+.mfp-with-zoom.mfp-ready .mfp-container {
+  opacity: 1;
+}
+
+.mfp-with-zoom.mfp-ready.mfp-bg {
+  opacity: 0.8;
+}
+
+.mfp-with-zoom.mfp-removing .mfp-container,
+.mfp-with-zoom.mfp-removing.mfp-bg {
+  opacity: 0;
+}
+
+/* Making the gallery responsive */
+@media screen and (max-width: 992px) {
+  .gallery-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .gallery-container {
+    grid-template-columns: 1fr;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  .container {
+    padding: 1rem;
+  }
+}

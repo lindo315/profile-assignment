@@ -1,10 +1,4 @@
-/* 
-BIZII Single-Page Website - About Section Styles
-Author: BIZII
-Description: Styling for the About Me section
-*/
-
-/* ---------- ABOUT SECTION BASE ---------- */
+/* ABOUT SECTION BASE */
 .about-section {
   background-color: var(--white);
   color: var(--dark-bg);
@@ -19,7 +13,7 @@ Description: Styling for the About Me section
   color: var(--primary-red-light);
 }
 
-/* ---------- ABOUT SECTION HEADER ---------- */
+/* ABOUT SECTION HEADER */
 .about-header {
   display: flex;
   flex-direction: column;
@@ -44,7 +38,7 @@ Description: Styling for the About Me section
   position: relative;
 }
 
-/* ---------- ABOUT CONTENT LAYOUT ---------- */
+/* ABOUT CONTENT LAYOUT */
 .about-content {
   display: flex;
   align-items: flex-start;
@@ -72,7 +66,7 @@ Description: Styling for the About Me section
   transform: scale(1.02);
 }
 
-/* ---------- ABOUT TEXT CONTENT ---------- */
+/* ABOUT TEXT CONTENT */
 .about-text {
   font-family: "Montserrat", sans-serif;
   color: var(--dark-bg);
@@ -121,7 +115,7 @@ Description: Styling for the About Me section
   margin-top: 0.5rem;
 }
 
-/* ---------- SKILLS SECTION ---------- */
+/* SKILLS SECTION */
 .skills-section {
   margin-top: 3rem;
   display: flex;
@@ -143,7 +137,7 @@ Description: Styling for the About Me section
 }
 
 .skill-icon {
-  background-color: #f5f5f5; /* Light gray background */
+  background-color: #f5f5f5; /* Light gray background? */
   border-radius: 8px;
   display: flex;
   align-items: center;
@@ -163,7 +157,7 @@ Description: Styling for the About Me section
   box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
 }
 
-/* ---------- RESPONSIVE ADJUSTMENTS ---------- */
+/* RESPONSIVE ADJUSTMENTS */
 @media screen and (max-width: 1200px) {
   .about-content {
     gap: 3rem;

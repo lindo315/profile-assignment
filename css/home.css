@@ -1,10 +1,4 @@
-/* 
-BIZII Single-Page Website - Home Section Styles
-Author: BIZII
-Description: Styling for the home/landing section
-*/
-
-/* ---------- HOME SECTION BASE ---------- */
+/* HOME SECTION BASE */
 .home-section {
   background-color: var(--primary-red);
   color: var(--white);
@@ -21,7 +15,7 @@ Description: Styling for the home/landing section
   color: var(--primary-red-light);
 }
 
-/* ---------- BACKGROUND LOGO ---------- */
+/* BACKGROUND LOGO */
 .background-logo {
   position: absolute;
   width: 80%;
@@ -41,7 +35,7 @@ Description: Styling for the home/landing section
   /* Animation applied via JavaScript for smoother performance */
 }
 
-/* ---------- HOME CONTENT ---------- */
+/* HOME CONTENT */
 .home-content {
   position: absolute;
   top: 30%;
@@ -81,7 +75,7 @@ Description: Styling for the home/landing section
   margin-bottom: 3rem;
 }
 
-/* ---------- SOCIAL ICONS ---------- */
+/* SOCIAL ICONS HOME */
 .social-icons {
   display: flex;
   align-items: center;
@@ -102,7 +96,7 @@ Description: Styling for the home/landing section
   transform: translateY(-3px);
 }
 
-/* Adjust YouTube icon to match others */
+/* Adjust YouTube icon to match others - the image was smaller */
 .youtube-icon {
   padding: 1.3rem;
 }
@@ -117,7 +111,7 @@ Description: Styling for the home/landing section
   height: 2.5rem;
 }
 
-/* ---------- RESPONSIVE ADJUSTMENTS ---------- */
+/* RESPONSIVENESS */
 @media screen and (max-width: 1200px) {
   .home-content {
     transform: translateX(50%);

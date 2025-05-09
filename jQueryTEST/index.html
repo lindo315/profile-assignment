@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jQuery Plugin Test - BIZII</title>
+
+    <!-- Added the same Google Fonts from my main site -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;500;600;700;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- I'm using basically the same colors from my main site -->
+    <style>
+      :root {
+        --primary-red: #9a2f2b;
+        --primary-red-light: #c25d5e;
+        --light-cream: #eee8e8;
+        --dark-bg: #2b2627;
+        --white: #ffffff;
+        --grey: #a1a1a1;
+      }
+
+      /* Basic styling for the test page */
+      body {
+        font-family: "Montserrat", sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: var(--dark-bg);
+        color: var(--white);
+        line-height: 1.6;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+      }
+
+      h1 {
+        color: var(--primary-red);
+        font-size: 3rem;
+        margin-bottom: 1.5rem;
+        font-weight: 900;
+      }
+
+      h2 {
+        color: var(--primary-red-light);
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+        font-weight: 700;
+      }
+
+      p {
+        margin-bottom: 1.5rem;
+        font-size: 1.1rem;
+      }
+
+      /* Making this look like my portfolio buttons */
+      .back-link {
+        display: inline-block;
+        background-color: var(--primary-red);
+        color: var(--white);
+        text-decoration: none;
+        padding: 0.75rem 1.5rem;
+        border-radius: 50px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        margin-top: 2rem;
+        transition: background-color 0.3s ease;
+      }
+
+      .back-link:hover {
+        background-color: var(--primary-red-light);
+      }
+
+      /* Gallery styling */
+      .gallery-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+        margin: 2rem 0;
+      }
+
+      /* Copied some of my portfolio card styling */
+      .gallery-item {
+        position: relative;
+        overflow: hidden;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .gallery-item:hover {
+        /* This is the same transform I used in my portfolio cards */
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+      }
+
+      .gallery-item img {
+        width: 100%;
+        height: auto;
+        display: block;
+        transition: transform 0.5s ease;
+      }
+
+      .gallery-item:hover img {
+        transform: scale(1.05);
+      }
+
+      /* I added these custom styles for the popup */
+      .custom-mfp-title {
+        color: #fff;
+        font-family: "Montserrat", sans-serif;
+        font-size: 1rem;
+        font-weight: 700;
+        text-align: center;
+        margin-top: 0.5rem;
+      }
+
+      /* Media queries for responsive design */
+      @media screen and (max-width: 768px) {
+        .gallery-container {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media screen and (max-width: 576px) {
+        .gallery-container {
+          grid-template-columns: 1fr;
+        }
+
+        h1 {
+          font-size: 2.5rem;
+        }
+      }
+    </style>
+
+    <!-- jQuery library -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Magnific Popup jQuery plugin - this is the plugin I'm testing -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1>jQuery Plugin Test - Magnific Popup</h1>
+      <p>
+        For this test page, I'm implementing the Magnific Popup jQuery plugin to
+        create an interactive lightbox gallery for my portfolio images. This
+        will enhance the UX by allowing visitors to view my work in a larger
+        format.
+      </p>
+
+      <h2>Automotive Photography Gallery</h2>
+      <div class="gallery-container" id="automotive-gallery">
+        <!-- These are the same images from my main portfolio -->
+        <a href="images/auto/1.jpg" class="gallery-item">
+          <img src="images/auto/1.jpg" alt="BMW M5" />
+        </a>
+        <a href="images/auto/2.jpg" class="gallery-item">
+          <img src="images/auto/2.jpg" alt="BMW M5 Close-up" />
+        </a>
+        <a href="images/auto/3.jpg" class="gallery-item">
+          <img src="images/auto/3.jpg" alt="BMW M Series" />
+        </a>
+        <a href="images/auto/4.jpg" class="gallery-item">
+          <img src="images/auto/4.jpg" alt="BMW M5 Front" />
+        </a>
+        <a href="images/auto/5.jpg" class="gallery-item">
+          <img src="images/auto/5.jpg" alt="BMW M Series Side" />
+        </a>
+      </div>
+
+      <h2>Brand Identity Projects</h2>
+      <div class="gallery-container" id="brand-gallery">
+        <!-- These match my brand identity examples from the portfolio -->
+        <a href="images/Black.png" class="gallery-item">
+          <img src="images/Black.png" alt="Giant Step Brand Identity" />
+        </a>
+        <a href="images/brand/2.jpg" class="gallery-item">
+          <img src="images/brand/2.jpg" alt="Brand Identity System" />
+        </a>
+        <a href="images/brand/3.jpg" class="gallery-item">
+          <img src="images/brand/3.jpg" alt="Giant Step" />
+        </a>
+      </div>
+
+      <a href="../index.html" class="back-link">Back to Main Website</a>
+    </div>
+
+    <!-- This is where I initialize the plugin -->
+    <script>
+      $(document).ready(function () {
+        // I spent a while trying to figure out the right options for this
+        // First I'm initializing the automotive gallery
+        $("#automotive-gallery").magnificPopup({
+          delegate: "a", // this tells the plugin which elements to make clickable
+          type: "image", // we're showing images in the popup
+          gallery: {
+            enabled: true, // this makes the gallery arrows work
+            preload: [0, 2], // preload a couple of images for smoother experience
+            navigateByImgClick: true, // this lets users click the image to go to next one
+            arrowMarkup:
+              '<button title="%title%" type="button" class="mfp-arrow mfp-arrow-%dir%"></button>',
+            tPrev: "Previous",
+            tNext: "Next",
+            tCounter: '<span class="mfp-counter">%curr% of %total%</span>',
+          },
+          // I added custom animation effects
+          mainClass: "mfp-with-zoom",
+          zoom: {
+            enabled: true,
+            duration: 300,
+            easing: "ease-in-out",
+            opener: function (openerElement) {
+              return openerElement.is("img")
+                ? openerElement
+                : openerElement.find("img");
+            },
+          },
+          image: {
+            // I had to add this to make the titles show up nicer
+            titleSrc: function (item) {
+              const imgAlt = item.el.find("img").attr("alt");
+              return `<div class="custom-mfp-title">${imgAlt}</div>`;
+            },
+          },
+        });
+
+        // Now doing the same thing for the brand gallery
+        // I'm basically copying the same code because both galleries need
+        // the same functionality but as separate galleries
+        $("#brand-gallery").magnificPopup({
+          delegate: "a",
+          type: "image",
+          gallery: {
+            enabled: true,
+            preload: [0, 2],
+            navigateByImgClick: true,
+          },
+          mainClass: "mfp-with-zoom",
+          zoom: {
+            enabled: true,
+            duration: 300,
+            easing: "ease-in-out",
+            opener: function (openerElement) {
+              return openerElement.is("img")
+                ? openerElement
+                : openerElement.find("img");
+            },
+          },
+          image: {
+            titleSrc: function (item) {
+              const imgAlt = item.el.find("img").attr("alt");
+              return `<div class="custom-mfp-title">${imgAlt}</div>`;
+            },
+          },
+        });
+
+        // Log to console when everything is initialized
+        // Had to use this for debugging when it wasn't working
+        console.log("Magnific Popup galleries initialized!");
+      });
+    </script>
+  </body>
+</html>
