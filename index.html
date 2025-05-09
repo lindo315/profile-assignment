@@ -39,6 +39,7 @@
     <link rel="stylesheet" href="css/about.css" />
     <link rel="stylesheet" href="css/portfolio.css" />
     <link rel="stylesheet" href="css/project-view.css" />
+    <link rel="stylesheet" href="css/project-direct-fix.css" />
     <link rel="stylesheet" href="css/contact.css" />
 
     <!-- jQuery library -->
@@ -81,22 +82,22 @@
         <!-- Social media icons -->
         <div class="social-icons">
           <a
-            href="https://instagram.com/biziicrtv"
-            target="_blank"
+            href="https://instagram.com/unknwn35mm"
+            target="https://www.instagram.com/unknwn35mm"
             class="social-icon"
           >
             <img src="images/icons/BIZII-instagram.png" alt="Instagram" />
           </a>
           <a
-            href="https://linkedin.com/in/bizii"
-            target="_blank"
+            href="https://linkedin.com/in/josh-bizimana-22104b29b/"
+            target="https://www.linkedin.com/in/josh-bizimana-22104b29b/"
             class="social-icon"
           >
             <img src="images/icons/BIZII-linkedin.png" alt="LinkedIn" />
           </a>
           <a
             href="https://youtube.com/biziivlogz"
-            target="_blank"
+            target="https://www.youtube.com/biziivlogz"
             class="youtube-icon social-icon"
           >
             <img src="images/icons/BIZII-youtube.png" alt="YouTube" />
@@ -195,7 +196,9 @@
         <ul class="nav-links">
           <li><a href="#home">Home</a></li>
           <li><a href="#about">About Me</a></li>
-          <li><a href="#portfolio" class="active">Portfolio</a></li>
+          <li>
+            <a href="#portfolio" class="active">Portfolio</a>
+          </li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
@@ -248,64 +251,86 @@
 
       <!-- AUTOMOTIVE PHOTOGRAPHY PROJECT VIEW -->
       <div id="project-automotive" class="portfolio-view project-view">
-        <!-- Project content: text + showcase -->
-        <!-- Project header with underline -->
-        <div class="project-header">
-          <h2 class="project-title">AUTOMOTIVE<br />PHOTOGRAPHY</h2>
-          <img
-            src="images/redline.png"
-            alt="underline"
-            class="title-underline"
-          />
-        </div>
-        <div class="project-content">
-          <!-- Left column with project header and description -->
-          <div class="project-description">
-            <p>
+        <!-- Use our custom grid layout with specific class names to avoid conflicts -->
+        <div class="bizii-project-layout">
+          <!-- Left column: title and text -->
+          <div class="bizii-project-info">
+            <!-- Project title -->
+            <h2 class="bizii-project-title">AUTOMOTIVE<br />PHOTOGRAPHY</h2>
+            <img
+              src="images/redline.png"
+              alt="underline"
+              class="bizii-title-underline"
+            />
+
+            <!-- Project description paragraphs -->
+            <p class="bizii-project-text">
               I strip away marketing gloss to expose raw automotive truth. These
               images reinterpret BMW's iconic
               <strong>"The Ultimate Driving Machine"</strong> campaigns through
               a modern Gauteng lens.
             </p>
 
-            <p>
+            <p class="bizii-project-text">
               The M5's aggressive stance frozen Red Metallic finish become
               characters in a visual narrative that honors BMW's advertising
               legacy while refusing to copy it.
             </p>
 
-            <p>
+            <p class="bizii-project-text">
               Each frame deliberately echoes
               <strong>vintage composition with contemporary execution</strong>.
             </p>
-
-            <button class="back-to-portfolio">Back to Portfolio</button>
           </div>
 
-          <!-- Project image showcase with carousel -->
-          <div class="project-showcase">
-            <!-- Carousel will be dynamically inserted by JavaScript -->
+          <!-- Right column: image carousel -->
+          <div class="bizii-project-image">
+            <div class="bizii-image-container">
+              <img
+                src="images/auto/1.jpg"
+                alt="BMW M5"
+                id="automotive-carousel-image"
+              />
+              <div class="bizii-image-caption" id="automotive-caption">
+                THE BMW M5.<br />AN UNCOMPROMISED DECISION.
+              </div>
+            </div>
+            <button
+              class="bizii-nav-arrow bizii-prev-arrow"
+              id="automotive-prev"
+            >
+              &lt;
+            </button>
+            <button
+              class="bizii-nav-arrow bizii-next-arrow"
+              id="automotive-next"
+            >
+              &gt;
+            </button>
+
+            <!-- Back button -->
+            <button class="bizii-back-button back-to-portfolio">
+              Back to Portfolio
+            </button>
           </div>
         </div>
       </div>
 
       <!-- COMMUNICATION DESIGN PROJECT VIEW -->
       <div id="project-communication" class="portfolio-view project-view">
-        <!-- Project content: text + showcase -->
-        <div class="project-content">
-          <!-- Left column with project header and description -->
-          <div class="project-description">
-            <!-- Project header with underline -->
-            <div class="project-header">
-              <h2 class="project-title">COMMUNICATION<br />DESIGN</h2>
-              <img
-                src="images/redline.png"
-                alt="underline"
-                class="title-underline"
-              />
-            </div>
+        <div class="bizii-project-layout">
+          <!-- Left column: title and text -->
+          <div class="bizii-project-info">
+            <!-- Project title -->
+            <h2 class="bizii-project-title">COMMUNICATION<br />DESIGN</h2>
+            <img
+              src="images/redline.png"
+              alt="underline"
+              class="bizii-title-underline"
+            />
 
-            <p>
+            <!-- Project description paragraphs -->
+            <p class="bizii-project-text">
               I crafted visual narratives for
               <strong>Old mutual SMEGo</strong> that connect instantly with
               South African entrepreneurs. The bold typography and decisive
@@ -313,49 +338,51 @@
               social environments.
             </p>
 
-            <p>
+            <p class="bizii-project-text">
               Each touchpoint - from Tap2Pay promotional materials to
               International Women's Day messaging maintains strategic and visual
               CI consistency while addressing specific audience segments.
             </p>
 
-            <p>
+            <p class="bizii-project-text">
               My design approach transforms complex financial services into
               accessible visual language.
             </p>
-
-            <button class="back-to-portfolio">Back to Portfolio</button>
           </div>
 
-          <!-- Project image showcase -->
-          <div class="project-showcase">
-            <!-- Gallery will be dynamically inserted by JavaScript -->
+          <!-- Right column: image display -->
+          <div class="bizii-project-image">
+            <div class="bizii-image-container">
+              <img src="images/comm/3.jpg" alt="Communication Design" />
+            </div>
+            <!-- Back button -->
+            <button class="bizii-back-button back-to-portfolio">
+              Back to Portfolio
+            </button>
           </div>
         </div>
       </div>
 
       <!-- BRAND IDENTITY PROJECT VIEW -->
       <div id="project-brand" class="portfolio-view project-view">
-        <!-- Project content: text + showcase -->
-        <div class="project-content">
-          <!-- Left column with project header and description -->
-          <div class="project-description">
-            <!-- Project header with underline -->
-            <div class="project-header">
-              <h2 class="project-title">BRAND IDENTITY<br />DESIGN</h2>
-              <img
-                src="images/redline.png"
-                alt="underline"
-                class="title-underline"
-              />
-            </div>
+        <div class="bizii-project-layout">
+          <!-- Left column: title and text -->
+          <div class="bizii-project-info">
+            <!-- Project title -->
+            <h2 class="bizii-project-title">BRAND<br />IDENTITY DESIGN</h2>
+            <img
+              src="images/redline.png"
+              alt="underline"
+              class="bizii-title-underline"
+            />
 
-            <p>
+            <!-- Project description paragraphs -->
+            <p class="bizii-project-text">
               From concept to execution, I transformed Giant Step's engineering
               ethos into visual language.
             </p>
 
-            <p>
+            <p class="bizii-project-text">
               The house-shaped mark communicates stability and upward momentum -
               essential qualities for the brand's niche. Deep teal projects
               confidence while establishing immediate sector recognition. The
@@ -363,25 +390,30 @@
               typography commands attention without apology.
             </p>
 
-            <p>
+            <p class="bizii-project-text">
               The look and feel balances
               <strong>corporate authority with accessible messaging</strong>
               through the "Some see buildings. We see opportunities." tagline.
             </p>
-
-            <button class="back-to-portfolio">Back to Portfolio</button>
           </div>
 
-          <!-- Project image showcase -->
-          <div class="project-showcase">
-            <!-- Gallery will be dynamically inserted by JavaScript -->
+          <!-- Right column: image display -->
+          <div class="bizii-project-image">
+            <div class="bizii-image-container">
+              <img src="images/brand/3.png" alt="Brand Identity Design" />
+            </div>
+
+            <!-- Back button -->
+            <button class="bizii-back-button back-to-portfolio">
+              Back to Portfolio
+            </button>
           </div>
         </div>
       </div>
     </section>
 
     <!-- CONTACT SECTION -->
-    <section id="contact" class="section contact-section">
+    <section id="contact" class="section home-section">
       <!-- Logo in top-left corner -->
       <div class="logo">
         <img src="images/icons/BIZII-logo.png" alt="BIZII Logo" />
@@ -393,81 +425,49 @@
           <li><a href="#home">Home</a></li>
           <li><a href="#about">About Me</a></li>
           <li><a href="#portfolio">Portfolio</a></li>
-          <li><a href="#contact" class="active">Contact</a></li>
+          <li><a href="#contact" class="active">Contact Me</a></li>
         </ul>
       </nav>
 
-      <!-- Contact content -->
-      <div class="section-content">
-        <h2>contact me</h2>
+      <!-- Background logo animation -->
+      <div class="background-logo">
+        <img
+          class="home-logo"
+          src="images/icons/BIZII-logo.png"
+          alt="BIZII Background Logo"
+        />
+      </div>
 
-        <div class="contact-content">
-          <!-- Quote -->
-          <p class="quote">"Let's get down to Bizness."</p>
+      <!-- Contact content (using home-content styling) -->
+      <div class="home-content">
+        <h1>HIT <span class="highlight">ME UP,</span></h1>
+        <h1>
+          <span class="highlight">LET'S WORK!</span>
+        </h1>
 
-          <!-- Down arrow animation -->
-          <div class="arrow-down">
-            <svg
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M12 5V19"
-                stroke="#FF2B1F"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-              <path
-                d="M19 12L12 19L5 12"
-                stroke="#FF2B1F"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
-          </div>
-
-          <!-- Contact form -->
-          <form class="contact-form" id="contactForm">
-            <div class="form-group">
-              <input
-                type="email"
-                id="email"
-                name="email"
-                placeholder="Your email address"
-                required
-              />
-            </div>
-
-            <!-- Social media icons -->
-            <div class="social-icons">
-              <a
-                href="https://instagram.com/biziicrtv"
-                target="_blank"
-                class="social-icon"
-              >
-                <img src="images/icons/BIZII-instagram.png" alt="Instagram" />
-              </a>
-              <a
-                href="https://linkedin.com/in/bizii"
-                target="_blank"
-                class="social-icon"
-              >
-                <img src="images/icons/BIZII-linkedin.png" alt="LinkedIn" />
-              </a>
-              <a
-                href="https://youtube.com/biziivlogz"
-                target="_blank"
-                class="social-icon"
-              >
-                <img src="images/icons/BIZII-youtube.png" alt="YouTube" />
-              </a>
-            </div>
-          </form>
+        <!-- Social media icons -->
+        <div class="social-icons">
+          <a
+            href="https://instagram.com/unknwn35mm"
+            target="https://www.instagram.com/unknwn35mm"
+            class="social-icon"
+          >
+            <img src="images/icons/BIZII-instagram.png" alt="Instagram" />
+          </a>
+          <a
+            href="https://linkedin.com/in/josh-bizimana-22104b29b/"
+            target="https://www.linkedin.com/in/josh-bizimana-22104b29b/"
+            class="social-icon"
+          >
+            <img src="images/icons/BIZII-linkedin.png" alt="LinkedIn" />
+          </a>
+          <a
+            href="https://youtube.com/biziivlogz"
+            target="https://www.youtube.com/biziivlogz"
+            class="youtube-icon social-icon"
+          >
+            <img src="images/icons/BIZII-youtube.png" alt="YouTube" />
+          </a>
         </div>
       </div>
     </section>
@@ -477,6 +477,7 @@
     <script src="js/navigation.js"></script>
     <script src="js/portfolio.js"></script>
     <script src="js/project-view.js"></script>
+    <script src="js/project-direct-fix.js"></script>
     <script src="js/form-validation.js"></script>
     <script src="js/animations.js"></script>
   </body>

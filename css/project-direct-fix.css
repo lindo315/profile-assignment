@@ -1,0 +1,207 @@
+/* 
+* Direct Fix for Project View Layout
+* This is a targeted, specific CSS that avoids conflicts
+*/
+
+/* First, reset some styles for the project view to avoid conflicts */
+.project-view.portfolio-view .project-content {
+  display: block; /* Reset any flex or grid */
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 2rem;
+}
+
+/* Create a two-column grid layout */
+.bizii-project-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two equal columns */
+  grid-gap: 3rem;
+  width: 100%;
+  padding: 2rem;
+}
+
+/* Left column (title and text) */
+.bizii-project-info {
+  grid-column: 1;
+  max-width: 100%;
+  padding-right: 1rem;
+}
+
+/* Project title with large red styling */
+.bizii-project-title {
+  font-size: 4rem;
+  color: #9a2f2b;
+  text-transform: uppercase;
+  font-weight: 900;
+  line-height: 0.9;
+  letter-spacing: -2px;
+  margin-bottom: 1rem;
+}
+
+/* Red underline below title */
+.bizii-title-underline {
+  display: block;
+  max-width: 300px;
+  height: auto;
+  margin-bottom: 2rem;
+}
+
+/* Project description text */
+.bizii-project-text {
+  color: #2b2627;
+  font-size: 1.1rem;
+  /* line-height: 1.6; */
+  /* margin-bottom: 1.5rem; */
+}
+
+/* Highlighted text in descriptions */
+.bizii-project-text strong {
+  color: #9a2f2b;
+  font-weight: 700;
+}
+
+/* Back to portfolio button */
+.bizii-back-button {
+  display: inline-block;
+  background-color: #9a2f2b;
+  color: white;
+  font-size: 0.9rem;
+  font-weight: 600;
+  /* padding: 0.75rem 1.5rem; */
+  border-radius: 50px;
+  /* margin-top: 2rem; */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border: none;
+}
+
+.bizii-back-button:hover {
+  background-color: #c25d5e;
+}
+
+/* Right column (image carousel) */
+.bizii-project-image {
+  grid-column: 2;
+  position: relative;
+  width: 100%;
+}
+
+/* Image container */
+.bizii-image-container {
+  position: relative;
+  width: 80%;
+  max-width: 400px;
+  margin: 0 auto;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.bizii-image-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* Navigation arrows */
+.bizii-nav-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background-color: #9a2f2b;
+  color: white;
+  border: none;
+  font-size: 1.2rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.bizii-nav-arrow:hover {
+  background-color: #c25d5e;
+}
+
+.bizii-prev-arrow {
+  left: -22px;
+}
+
+.bizii-next-arrow {
+  right: -22px;
+}
+
+/* Caption for images */
+.bizii-image-caption {
+  position: absolute;
+  bottom: -2.5rem;
+  right: 0;
+  color: #2b2627;
+  font-size: 0.9rem;
+  text-align: right;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 992px) {
+  .bizii-project-layout {
+    grid-template-columns: 1fr; /* Stack columns on smaller screens */
+    grid-gap: 2rem;
+  }
+
+  .bizii-project-info,
+  .bizii-project-image {
+    grid-column: 1;
+  }
+
+  .bizii-project-title {
+    font-size: 4rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .bizii-project-layout {
+    padding: 1.5rem;
+  }
+
+  .bizii-project-title {
+    font-size: 3.5rem;
+  }
+
+  .bizii-nav-arrow {
+    width: 36px;
+    height: 36px;
+    font-size: 1rem;
+  }
+
+  .bizii-prev-arrow {
+    left: -18px;
+  }
+
+  .bizii-next-arrow {
+    right: -18px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .bizii-project-layout {
+    padding: 1rem;
+  }
+
+  .bizii-project-title {
+    font-size: 3rem;
+  }
+
+  .bizii-project-text {
+    font-size: 1rem;
+  }
+}
